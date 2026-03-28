@@ -12,52 +12,42 @@
     color: #f0f0f0;
     font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
     min-height: 100vh;
-    overflow-x: hidden;
   }
 
-  /* Animated background */
   .bg-glow {
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(ellipse at 30% 40%, rgba(255,69,0,0.08) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(180,0,80,0.06) 0%, transparent 50%);
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 40%, rgba(255,69,0,0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(180,0,80,0.05) 0%, transparent 50%);
     animation: bgPulse 8s ease-in-out infinite alternate;
-    pointer-events: none;
-    z-index: 0;
+    pointer-events: none; z-index: 0;
   }
   @keyframes bgPulse {
-    0%   { transform: scale(1) rotate(0deg); opacity: 0.6; }
-    100% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.08); opacity: 1; }
   }
 
   .page {
-    position: relative;
-    z-index: 1;
-    max-width: 480px;
+    position: relative; z-index: 1;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 48px 20px 60px;
+    padding: 36px 16px 60px;
   }
 
   /* Header */
   .header {
-    text-align: center;
-    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
   }
 
-  .avatar-wrap {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 18px;
-  }
+  .avatar-wrap { position: relative; flex-shrink: 0; }
 
   .avatar-ring {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    padding: 3px;
+    width: 68px; height: 68px;
+    border-radius: 50%; padding: 2px;
     background: linear-gradient(135deg, #ff4500, #ff0080, #ff4500);
     background-size: 200% 200%;
     animation: ringSpin 3s linear infinite;
@@ -69,226 +59,165 @@
   }
 
   .avatar-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    background: #111;
+    width: 100%; height: 100%;
+    border-radius: 50%; object-fit: cover;
+    display: block; background: #111;
   }
 
   .live-dot {
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    width: 16px;
-    height: 16px;
-    background: #00d45e;
-    border-radius: 50%;
+    position: absolute; bottom: 2px; right: 2px;
+    width: 13px; height: 13px;
+    background: #00d45e; border-radius: 50%;
     border: 2px solid #080808;
     animation: livePulse 1.5s ease-in-out infinite;
   }
   @keyframes livePulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,94,0.6); }
-    50%       { box-shadow: 0 0 0 6px rgba(0,212,94,0); }
+    50%       { box-shadow: 0 0 0 5px rgba(0,212,94,0); }
   }
 
-  .site-name {
-    font-size: 24px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.3px;
-    margin-bottom: 4px;
-  }
+  .header-text { flex: 1; }
+  .header-text h1 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 3px; }
+  .header-text p  { font-size: 12px; color: #555; }
 
-  .site-tag {
-    font-size: 13px;
-    color: #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .header-reddit {
+    display: flex; align-items: center; gap: 8px;
+    background: #111; border: 1px solid #222;
+    border-radius: 8px; padding: 8px 14px;
+    text-decoration: none; color: #ddd;
+    font-size: 13px; font-weight: 600;
+    transition: all 0.2s; flex-shrink: 0;
   }
-  .site-tag .dot { color: #333; }
+  .header-reddit:hover { border-color: #ff4500; color: #ff4500; }
 
-  /* Chaturbate hero block */
-  .hero-cb {
-    background: linear-gradient(160deg, #1c0800 0%, #2a0f00 50%, #1a0800 100%);
-    border: 1px solid rgba(255,69,0,0.4);
-    border-radius: 16px;
-    padding: 24px 22px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
+  /* Live cams section */
+  .section-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px;
   }
-  .hero-cb::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255,100,0,0.6), transparent);
+  .section-title {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px; color: #bbb;
   }
-  .hero-cb:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255,69,0,0.8);
+  .live-badge {
+    display: flex; align-items: center; gap: 5px;
+    background: rgba(255,69,0,0.15); border: 1px solid rgba(255,69,0,0.3);
+    border-radius: 20px; padding: 3px 10px;
+    font-size: 11px; font-weight: 700; color: #ff4500;
+    text-transform: uppercase; letter-spacing: 1px;
   }
-
-  .cb-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #ff4500;
-    margin-bottom: 10px;
-  }
-  .cb-eyebrow .pulse-dot {
-    width: 7px; height: 7px;
-    background: #ff4500;
+  .live-badge .dot {
+    width: 6px; height: 6px; background: #ff4500;
     border-radius: 50%;
     animation: livePulse 1.2s ease-in-out infinite;
   }
+  .model-count { font-size: 11px; color: #444; }
 
-  .cb-headline {
-    font-size: 21px;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-
-  .cb-desc {
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 18px;
-    line-height: 1.5;
-  }
-
-  .cb-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #ff4500;
-    color: #fff;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 11px 24px;
-    border-radius: 30px;
-    transition: background 0.2s, transform 0.1s;
-  }
-  .hero-cb:hover .cb-cta {
-    background: #ff5c1a;
-  }
-
-  .cb-badge {
-    background: rgba(255,255,255,0.15);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
-  }
-
-  /* Reddit community link */
-  .reddit-btn {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #111;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 14px 18px;
-    text-decoration: none;
-    color: #f0f0f0;
-    margin-bottom: 20px;
-    transition: all 0.2s;
-  }
-  .reddit-btn:hover {
-    background: #161616;
-    border-color: #ff4500;
-    transform: translateY(-1px);
-  }
-  .reddit-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #ff4500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-  .reddit-btn .rt { text-align: left; }
-  .reddit-btn .rt .rl { font-size: 14px; font-weight: 700; color: #fff; }
-  .reddit-btn .rt .rs { font-size: 11px; color: #555; margin-top: 2px; }
-  .reddit-btn .arrow { margin-left: auto; color: #444; font-size: 16px; }
-
-  /* Section label */
-  .section-label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #444;
-    margin-bottom: 12px;
-    padding-left: 2px;
-  }
-
-  /* Premium links grid */
-  .links-grid {
+  /* Cam grid */
+  .cam-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 500px) {
+    .cam-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  .grid-btn {
-    background: #111;
-    border: 1px solid #1e1e1e;
-    border-radius: 12px;
-    padding: 16px 10px;
-    text-decoration: none;
-    color: #f0f0f0;
-    text-align: center;
-    transition: all 0.2s;
-    display: block;
+  .cam-card {
+    background: #111; border-radius: 10px;
+    overflow: hidden; position: relative;
+    text-decoration: none; display: block;
+    transition: transform 0.2s;
+    border: 1px solid #1a1a1a;
   }
-  .grid-btn:hover {
-    background: #181818;
-    border-color: #333;
+  .cam-card:hover { transform: translateY(-3px); border-color: #ff4500; }
+
+  .cam-thumb {
+    width: 100%; aspect-ratio: 4/3;
+    object-fit: cover; display: block;
+    background: #111;
+  }
+
+  .cam-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%);
+  }
+
+  .cam-overlay-hover {
+    position: absolute; inset: 0;
+    background: rgba(255,69,0,0.12);
+    opacity: 0; transition: opacity 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cam-card:hover .cam-overlay-hover { opacity: 1; }
+  .cam-overlay-hover span {
+    background: #ff4500; color: #fff;
+    font-size: 12px; font-weight: 700;
+    padding: 6px 14px; border-radius: 20px;
+  }
+
+  .cam-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 8px 10px;
+  }
+  .cam-name { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .cam-viewers {
+    font-size: 10px; color: #aaa;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .cam-viewers::before {
+    content: ''; width: 5px; height: 5px;
+    background: #00d45e; border-radius: 50; display: inline-block;
+  }
+
+  .cam-skeleton {
+    background: #111; border-radius: 10px;
+    aspect-ratio: 4/3;
+    animation: shimmer 1.5s infinite linear;
+    background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+    background-size: 200% 100%;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .cam-error {
+    background: #111; border-radius: 10px;
+    padding: 20px; text-align: center;
+    color: #444; font-size: 13px;
+    grid-column: 1/-1;
+  }
+
+  /* Bottom links */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 400px) {
+    .bottom-grid { grid-template-columns: 1fr; }
+  }
+
+  .bottom-btn {
+    background: #0f0f0f; border: 1px solid #1e1e1e;
+    border-radius: 10px; padding: 16px 12px;
+    text-decoration: none; text-align: center;
+    display: block; transition: all 0.2s; color: #ddd;
+  }
+  .bottom-btn:hover {
+    background: #141414; border-color: #333;
     transform: translateY(-2px);
   }
-  .grid-btn .g-icon { font-size: 24px; margin-bottom: 8px; display: block; }
-  .grid-btn .g-name { font-size: 12px; font-weight: 700; color: #ddd; margin-bottom: 3px; }
-  .grid-btn .g-tag {
-    font-size: 9px;
-    color: #555;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-  .grid-btn .g-age {
-    display: inline-block;
-    background: #1e1e1e;
-    color: #666;
-    font-size: 8px;
-    font-weight: 700;
-    padding: 1px 4px;
-    border-radius: 3px;
-    margin-top: 5px;
-    letter-spacing: 0.5px;
-  }
+  .bottom-btn .b-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+  .bottom-btn .b-name { font-size: 12px; font-weight: 700; color: #ccc; margin-bottom: 2px; }
+  .bottom-btn .b-tag  { font-size: 10px; color: #555; }
 
   .footer {
-    text-align: center;
-    font-size: 10px;
-    color: #2a2a2a;
-    line-height: 1.7;
+    margin-top: 32px; text-align: center;
+    font-size: 10px; color: #252525; line-height: 1.8;
   }
 </style>
 </head>
@@ -302,76 +231,109 @@
   <div class="header">
     <div class="avatar-wrap">
       <div class="avatar-ring">
-        <img class="avatar-img" src="/avatar.png" alt="chibigbootygirls">
+        <img class="avatar-img" src="/avatar.png" alt="">
       </div>
       <div class="live-dot"></div>
     </div>
-    <div class="site-name">r/chibigbootygirls</div>
-    <div class="site-tag">
-      <span>36K+ members</span>
-      <span class="dot">&bull;</span>
-      <span>NSFW</span>
-      <span class="dot">&bull;</span>
-      <span>18+</span>
+    <div class="header-text">
+      <h1>r/chibigbootygirls</h1>
+      <p>36K+ members &nbsp;&bull;&nbsp; NSFW &nbsp;&bull;&nbsp; 18+</p>
     </div>
+    <a class="header-reddit" href="https://reddit.com/r/chibigbootygirls" target="_blank">
+      &#129395; Join
+    </a>
   </div>
 
-  <!-- Chaturbate hero -->
-  <a class="hero-cb" href="/r/chat" target="_blank">
-    <div class="cb-eyebrow">
-      <div class="pulse-dot"></div>
-      Live right now
+  <!-- Live Cams -->
+  <div class="section-head">
+    <div class="section-title">
+      <span>Live Cams</span>
+      <div class="live-badge"><div class="dot"></div>LIVE</div>
     </div>
-    <div class="cb-headline">Free Live Cams</div>
-    <div class="cb-desc">Thousands of models online &mdash; watch free, no account needed</div>
-    <div class="cb-cta">
-      Watch Now
-      <span class="cb-badge">FREE</span>
-    </div>
-  </a>
+    <div class="model-count" id="modelCount">Loading...</div>
+  </div>
 
-  <!-- Reddit community -->
-  <a class="reddit-btn" href="https://reddit.com/r/chibigbootygirls" target="_blank">
-    <div class="reddit-icon">&#129395;</div>
-    <div class="rt">
-      <div class="rl">Join the Community</div>
-      <div class="rs">r/chibigbootygirls &nbsp;&bull;&nbsp; Daily posts</div>
-    </div>
-    <span class="arrow">&#8250;</span>
-  </a>
+  <div class="cam-grid" id="camGrid">
+    <div class="cam-skeleton"></div>
+    <div class="cam-skeleton"></div>
+    <div class="cam-skeleton"></div>
+    <div class="cam-skeleton"></div>
+    <div class="cam-skeleton"></div>
+    <div class="cam-skeleton"></div>
+  </div>
 
   <!-- Premium links -->
-  <div class="section-label">Premium Content</div>
-  <div class="links-grid">
-
-    <a class="grid-btn" href="/r/brz" target="_blank">
-      <span class="g-icon">&#127909;</span>
-      <div class="g-name">Brazzers</div>
-      <div class="g-tag">Full Scenes</div>
-      <div class="g-age">18+</div>
+  <div class="section-head" style="margin-bottom:14px;">
+    <div class="section-title">Premium Content</div>
+  </div>
+  <div class="bottom-grid">
+    <a class="bottom-btn" href="/r/brz" target="_blank">
+      <span class="b-icon">&#127909;</span>
+      <div class="b-name">Brazzers</div>
+      <div class="b-tag">Full Scenes &bull; 18+</div>
     </a>
-
-    <a class="grid-btn" href="/r/bb" target="_blank">
-      <span class="g-icon">&#11088;</span>
-      <div class="g-name">Bang Bros</div>
-      <div class="g-tag">Exclusive</div>
-      <div class="g-age">18+</div>
+    <a class="bottom-btn" href="/r/bb" target="_blank">
+      <span class="b-icon">&#11088;</span>
+      <div class="b-name">Bang Bros</div>
+      <div class="b-tag">Exclusive &bull; 18+</div>
     </a>
-
-    <a class="grid-btn" href="/r/mof" target="_blank">
-      <span class="g-icon">&#127917;</span>
-      <div class="g-name">Mofos</div>
-      <div class="g-tag">Reality</div>
-      <div class="g-age">18+</div>
+    <a class="bottom-btn" href="/r/mof" target="_blank">
+      <span class="b-icon">&#127917;</span>
+      <div class="b-name">Mofos</div>
+      <div class="b-tag">Reality &bull; 18+</div>
     </a>
-
   </div>
 
   <div class="footer">
-    All content is intended for adults 18 years of age or older.<br>
+    All content is for adults 18 years of age or older.<br>
     By continuing you confirm you meet the age requirement.
   </div>
 
 </div>
+
+<script>
+const API = 'https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=6&offset=0&gender=f&format=json';
+
+function formatViewers(n) {
+  if (n >= 1000) return (n/1000).toFixed(1) + 'k';
+  return n;
+}
+
+async function loadCams() {
+  const grid = document.getElementById('camGrid');
+  const count = document.getElementById('modelCount');
+
+  try {
+    const res = await fetch(API);
+    const data = await res.json();
+    const rooms = data.results || [];
+    const total = data.count || 0;
+
+    count.textContent = total.toLocaleString() + ' models online';
+
+    grid.innerHTML = rooms.map(r => `
+      <a class="cam-card" href="${r.chat_room_url_revshare}" target="_blank" rel="noopener">
+        <img class="cam-thumb" src="${r.image_url}" alt="${r.display_name}" loading="lazy"
+             onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect fill=\'%23111\'/></svg>'">
+        <div class="cam-overlay"></div>
+        <div class="cam-overlay-hover"><span>Watch Live</span></div>
+        <div class="cam-info">
+          <div class="cam-name">${r.display_name || r.username}</div>
+          <div class="cam-viewers">${formatViewers(r.num_users)} watching</div>
+        </div>
+      </a>
+    `).join('');
+
+  } catch(e) {
+    grid.innerHTML = '<div class="cam-error">Could not load live cams. <a href="/r/chat" style="color:#ff4500">Click here to watch</a></div>';
+    count.textContent = '';
+  }
+}
+
+loadCams();
+// Refresh thumbnails every 45 seconds
+setInterval(loadCams, 45000);
+</script>
+
 </body>
 </html>
