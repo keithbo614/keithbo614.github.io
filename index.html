@@ -3,229 +3,375 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>chibi booty</title>
+<title>chibi booty girls</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: #0d0d0d;
+    background: #080808;
     color: #f0f0f0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
+    overflow-x: hidden;
   }
 
-  .card {
-    background: #1a1a1a;
-    border-radius: 16px;
-    padding: 40px 32px;
-    max-width: 440px;
-    width: 100%;
+  /* Animated background */
+  .bg-glow {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 40%, rgba(255,69,0,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(180,0,80,0.06) 0%, transparent 50%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+  }
+  @keyframes bgPulse {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.6; }
+    100% { transform: scale(1.1) rotate(3deg); opacity: 1; }
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 48px 20px 60px;
+  }
+
+  /* Header */
+  .header {
     text-align: center;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    margin-bottom: 36px;
   }
 
-  .avatar {
-    width: 90px;
-    height: 90px;
+  .avatar-wrap {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 18px;
+  }
+
+  .avatar-ring {
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
-    border: 3px solid #ff4500;
-    margin: 0 auto 16px;
-    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(135deg, #ff4500, #ff0080, #ff4500);
+    background-size: 200% 200%;
+    animation: ringSpin 3s linear infinite;
+  }
+  @keyframes ringSpin {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .avatar-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
     background: #111;
   }
 
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  .live-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    background: #00d45e;
+    border-radius: 50%;
+    border: 2px solid #080808;
+    animation: livePulse 1.5s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,94,0.6); }
+    50%       { box-shadow: 0 0 0 6px rgba(0,212,94,0); }
   }
 
-  h1 {
-    font-size: 22px;
-    font-weight: 700;
-    color: #ffffff;
+  .site-name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.3px;
     margin-bottom: 4px;
+  }
+
+  .site-tag {
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .site-tag .dot { color: #333; }
+
+  /* Chaturbate hero block */
+  .hero-cb {
+    background: linear-gradient(160deg, #1c0800 0%, #2a0f00 50%, #1a0800 100%);
+    border: 1px solid rgba(255,69,0,0.4);
+    border-radius: 16px;
+    padding: 24px 22px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .hero-cb::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,100,0,0.6), transparent);
+  }
+  .hero-cb:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255,69,0,0.8);
+  }
+
+  .cb-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ff4500;
+    margin-bottom: 10px;
+  }
+  .cb-eyebrow .pulse-dot {
+    width: 7px; height: 7px;
+    background: #ff4500;
+    border-radius: 50%;
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+
+  .cb-headline {
+    font-size: 21px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .cb-desc {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+
+  .cb-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ff4500;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 11px 24px;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .hero-cb:hover .cb-cta {
+    background: #ff5c1a;
+  }
+
+  .cb-badge {
+    background: rgba(255,255,255,0.15);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
     letter-spacing: 0.5px;
   }
 
-  .tagline {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 24px;
-  }
-
-  /* Chaturbate featured banner */
-  .cb-featured {
-    background: linear-gradient(135deg, #1a0800, #2d1200);
-    border: 1px solid #ff4500;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .cb-featured .cb-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #ff4500;
-    margin-bottom: 6px;
-    font-weight: 700;
-  }
-
-  .cb-featured .cb-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-
-  .cb-featured .cb-sub {
-    font-size: 12px;
-    color: #aaa;
-    margin-bottom: 12px;
-  }
-
-  .cb-btn {
-    display: inline-block;
-    background: #ff4500;
-    color: white;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 8px 22px;
-    border-radius: 20px;
-    text-decoration: none;
-  }
-
-  .divider {
-    height: 1px;
-    background: #2a2a2a;
-    margin-bottom: 16px;
-  }
-
-  .link-btn {
+  /* Reddit community link */
+  .reddit-btn {
     display: flex;
     align-items: center;
     gap: 14px;
-    background: #222;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 13px 16px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 14px 18px;
     text-decoration: none;
     color: #f0f0f0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transition: all 0.2s;
-    text-align: left;
   }
-
-  .link-btn:hover {
-    background: #2a2a2a;
+  .reddit-btn:hover {
+    background: #161616;
     border-color: #ff4500;
     transform: translateY(-1px);
   }
-
-  .link-btn.highlight {
-    background: linear-gradient(135deg, #0a1a0a, #122012);
-    border-color: #ff4500;
-  }
-
-  .link-btn .icon {
-    font-size: 20px;
-    width: 28px;
-    text-align: center;
+  .reddit-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ff4500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
     flex-shrink: 0;
   }
+  .reddit-btn .rt { text-align: left; }
+  .reddit-btn .rt .rl { font-size: 14px; font-weight: 700; color: #fff; }
+  .reddit-btn .rt .rs { font-size: 11px; color: #555; margin-top: 2px; }
+  .reddit-btn .arrow { margin-left: auto; color: #444; font-size: 16px; }
 
-  .link-btn .text .label {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
+  /* Section label */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 12px;
+    padding-left: 2px;
   }
 
-  .link-btn .text .desc {
-    font-size: 11px;
-    color: #777;
-    margin-top: 2px;
+  /* Premium links grid */
+  .links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .grid-btn {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 12px;
+    padding: 16px 10px;
+    text-decoration: none;
+    color: #f0f0f0;
+    text-align: center;
+    transition: all 0.2s;
+    display: block;
+  }
+  .grid-btn:hover {
+    background: #181818;
+    border-color: #333;
+    transform: translateY(-2px);
+  }
+  .grid-btn .g-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+  .grid-btn .g-name { font-size: 12px; font-weight: 700; color: #ddd; margin-bottom: 3px; }
+  .grid-btn .g-tag {
+    font-size: 9px;
+    color: #555;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .grid-btn .g-age {
+    display: inline-block;
+    background: #1e1e1e;
+    color: #666;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
   }
 
   .footer {
-    margin-top: 20px;
-    font-size: 11px;
-    color: #444;
-  }
-
-  .age-gate {
-    display: inline-block;
-    background: #ff4500;
-    color: white;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 1px 5px;
-    border-radius: 3px;
-    margin-left: 5px;
-    vertical-align: middle;
-    letter-spacing: 0.5px;
+    text-align: center;
+    font-size: 10px;
+    color: #2a2a2a;
+    line-height: 1.7;
   }
 </style>
 </head>
 <body>
-<div class="card">
 
-  <div class="avatar">
-    <img src="/avatar.png" alt="r/chibigbootygirls">
+<div class="bg-glow"></div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <img class="avatar-img" src="/avatar.png" alt="chibigbootygirls">
+      </div>
+      <div class="live-dot"></div>
+    </div>
+    <div class="site-name">r/chibigbootygirls</div>
+    <div class="site-tag">
+      <span>36K+ members</span>
+      <span class="dot">&bull;</span>
+      <span>NSFW</span>
+      <span class="dot">&bull;</span>
+      <span>18+</span>
+    </div>
   </div>
-  <h1>r/chibigbootygirls</h1>
-  <p class="tagline">36K+ members &nbsp;&middot;&nbsp; NSFW community</p>
 
-  <!-- Chaturbate featured -->
-  <a class="cb-featured" href="/r/chat" target="_blank">
-    <div class="cb-label">&#128293; Featured</div>
-    <div class="cb-title">Live Cams &mdash; Free to Watch</div>
-    <div class="cb-sub">Thousands of models live right now &mdash; no signup needed</div>
-    <span class="cb-btn">Watch Now 18+</span>
-  </a>
-
-  <div class="divider"></div>
-
-  <a class="link-btn highlight" href="https://reddit.com/r/chibigbootygirls" target="_blank">
-    <span class="icon">&#129395;</span>
-    <div class="text">
-      <div class="label">Join the Community</div>
-      <div class="desc">r/chibigbootygirls &mdash; 36K members on Reddit</div>
+  <!-- Chaturbate hero -->
+  <a class="hero-cb" href="/r/chat" target="_blank">
+    <div class="cb-eyebrow">
+      <div class="pulse-dot"></div>
+      Live right now
+    </div>
+    <div class="cb-headline">Free Live Cams</div>
+    <div class="cb-desc">Thousands of models online &mdash; watch free, no account needed</div>
+    <div class="cb-cta">
+      Watch Now
+      <span class="cb-badge">FREE</span>
     </div>
   </a>
 
-  <a class="link-btn" href="/r/brz" target="_blank">
-    <span class="icon">&#127909;</span>
-    <div class="text">
-      <div class="label">Brazzers <span class="age-gate">18+</span></div>
-      <div class="desc">Full scenes &mdash; top studio network</div>
+  <!-- Reddit community -->
+  <a class="reddit-btn" href="https://reddit.com/r/chibigbootygirls" target="_blank">
+    <div class="reddit-icon">&#129395;</div>
+    <div class="rt">
+      <div class="rl">Join the Community</div>
+      <div class="rs">r/chibigbootygirls &nbsp;&bull;&nbsp; Daily posts</div>
     </div>
+    <span class="arrow">&#8250;</span>
   </a>
 
-  <a class="link-btn" href="/r/bb" target="_blank">
-    <span class="icon">&#11088;</span>
-    <div class="text">
-      <div class="label">Bang Bros <span class="age-gate">18+</span></div>
-      <div class="desc">Exclusive content &mdash; new scenes daily</div>
-    </div>
-  </a>
+  <!-- Premium links -->
+  <div class="section-label">Premium Content</div>
+  <div class="links-grid">
 
-  <a class="link-btn" href="/r/mof" target="_blank">
-    <span class="icon">&#127917;</span>
-    <div class="text">
-      <div class="label">Mofos <span class="age-gate">18+</span></div>
-      <div class="desc">Reality content &mdash; real situations</div>
-    </div>
-  </a>
+    <a class="grid-btn" href="/r/brz" target="_blank">
+      <span class="g-icon">&#127909;</span>
+      <div class="g-name">Brazzers</div>
+      <div class="g-tag">Full Scenes</div>
+      <div class="g-age">18+</div>
+    </a>
 
-  <p class="footer">All content is for adults 18+ only</p>
+    <a class="grid-btn" href="/r/bb" target="_blank">
+      <span class="g-icon">&#11088;</span>
+      <div class="g-name">Bang Bros</div>
+      <div class="g-tag">Exclusive</div>
+      <div class="g-age">18+</div>
+    </a>
+
+    <a class="grid-btn" href="/r/mof" target="_blank">
+      <span class="g-icon">&#127917;</span>
+      <div class="g-name">Mofos</div>
+      <div class="g-tag">Reality</div>
+      <div class="g-age">18+</div>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    All content is intended for adults 18 years of age or older.<br>
+    By continuing you confirm you meet the age requirement.
+  </div>
+
 </div>
 </body>
 </html>
