@@ -8,55 +8,86 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial,sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
 .page{max-width:480px;margin:0 auto;padding:10px 10px 40px}
-.hero{padding:12px 0 8px}
-.hero h1{font-size:16px;font-weight:600;color:#ccc;margin-bottom:2px}
-.hero p{font-size:11px;color:#444}
+.hero{padding:10px 0 6px}
+.hero h1{font-size:15px;font-weight:600;color:#999;margin-bottom:2px}
 .feed{display:flex;flex-direction:column;gap:8px}
 .card{background:#111;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;text-decoration:none;display:block;transition:transform .12s;color:#fff}
 .card:active{transform:scale(.98)}
-.card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0a0a0a}
-.card-body{padding:8px 10px;display:flex;justify-content:space-between;align-items:center}
-.card-label{font-size:12px;color:#bbb;flex:1}
-.card-arrow{font-size:11px;color:#666;padding-left:8px}
-.section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#333;margin:14px 0 6px;display:flex;align-items:center;gap:6px}
-.section-label .dot{width:5px;height:5px;background:#ff4500;border-radius:50%;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.card-img{width:100%;display:block;background:#0a0a0a}
+.card-body{padding:7px 10px;display:flex;justify-content:space-between;align-items:center}
+.card-label{font-size:11px;color:#888;flex:1}
+.card-arrow{font-size:10px;color:#555}
+.divider{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#282828;margin:12px 0 6px;display:flex;align-items:center;gap:6px}
+.divider .dot{width:4px;height:4px;background:#ff4500;border-radius:50%;animation:p 1.5s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
-.thumb{background:#111;border-radius:8px;overflow:hidden;text-decoration:none;display:block;border:1px solid #1a1a1a;transition:border-color .12s}
+.thumb{background:#111;border-radius:8px;overflow:hidden;text-decoration:none;display:block;border:1px solid #1a1a1a}
 .thumb:active{transform:scale(.97)}
 .thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0a0a0a}
-.thumb-info{padding:5px 7px}
-.thumb-name{font-size:11px;font-weight:500;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.thumb-sub{font-size:9px;color:#444}
-.footer{text-align:center;font-size:8px;color:#181818;line-height:1.8;margin-top:16px;padding:0 20px}
-.footer a{color:#222;text-decoration:none}
-.skel{background:linear-gradient(90deg,#111 25%,#1a1a1a 50%,#111 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;aspect-ratio:4/3}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.thumb-cap{padding:5px 7px;font-size:10px;color:#666}
+.footer{text-align:center;font-size:8px;color:#151515;line-height:1.8;margin-top:16px}
+.footer a{color:#1a1a1a;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="hero">
-    <h1 id="heroTitle">more like this</h1>
-    <p>tap to continue</p>
+  <div class="hero"><h1 id="h">more like this</h1></div>
+
+  <div class="feed">
+    <!-- Top post from sub — real image -->
+    <a class="card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top1" target="_blank" rel="noopener">
+      <img class="card-img" src="https://i.redd.it/qamwo7aph1ud1.jpeg" alt="" loading="eager">
+      <div class="card-body"><div class="card-label">more from her</div><div class="card-arrow">&rarr;</div></div>
+    </a>
+    <a class="card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top2" target="_blank" rel="noopener">
+      <img class="card-img" src="https://i.redd.it/bv4xqyn5lkvd1.jpeg" alt="" loading="eager">
+      <div class="card-body"><div class="card-label">she gets crazier after this</div><div class="card-arrow">&rarr;</div></div>
+    </a>
   </div>
 
-  <!-- Main feed — populated by API -->
-  <div class="feed" id="feed">
-    <div style="padding:20px;text-align:center"><div class="skel" style="aspect-ratio:16/9;margin-bottom:6px"></div><div class="skel" style="aspect-ratio:16/9"></div></div>
+  <div class="divider"><div class="dot"></div>more from the sub</div>
+  <div class="grid">
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g1" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/rjec3h5tpzfc1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">full set &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g2" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/c2sz9pm9sgud1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">more of her &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g3" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/zdutm6ye265f1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">source + more &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g4" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/ajbnp0bkf2td1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">watch more &rarr;</div>
+    </a>
   </div>
 
-  <!-- Scrollable grid -->
-  <div class="section-label"><div class="dot"></div>more girls live now</div>
-  <div class="grid" id="grid1"><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+  <div class="divider">trending right now</div>
+  <div class="grid">
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g5" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/u8nxx10483sd1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">this gets better &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g6" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/n9389vjikgsd1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">more like this &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g7" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/3dxydcvvorrd1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">she has more &rarr;</div>
+    </a>
+    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g8" target="_blank" rel="noopener">
+      <img src="https://i.redd.it/ktljij75c0ge1.jpeg" alt="" loading="lazy">
+      <div class="thumb-cap">full clip &rarr;</div>
+    </a>
+  </div>
 
-  <div class="section-label">you might also like</div>
-  <div class="grid3" id="grid2"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
-
-  <div class="section-label">trending this week</div>
-  <div class="grid" id="grid3"><div class="skel"></div><div class="skel"></div></div>
+  <div class="divider"><div class="dot"></div>live now</div>
+  <div class="grid" id="live"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#333">loading...</div></div>
 
   <!-- AdultForce -->
   <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px">
@@ -70,65 +101,33 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
 </div>
 
 <script>
-var CB='https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&gender=f&format=json';
-
+var caps=["she's still going","more from tonight","way more here","she went off","couldn't stop watching","there's a part 2","she's on rn"];
+function cap(){return caps[Math.floor(Math.random()*caps.length)]}
 function fv(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
 
-// Casual captions that feel human
-var captions=[
-  "she didn't stop after this","more from her","this gets better","yeah there's more lol",
-  "she's still going","more of this","full thing here","she went off","still live rn",
-  "way more here","this one's wild","she keeps going","more from tonight",
-  "couldn't stop watching","there's a part 2","she's on rn","more where this came from"
-];
-function cap(){return captions[Math.floor(Math.random()*captions.length)]}
-
-function mkThumb(m){
-  return '<a class="thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
-    +'<img src="'+m.image_url+'" alt="" loading="lazy">'
-    +'<div class="thumb-info"><div class="thumb-name">'+cap()+'</div>'
-    +'<div class="thumb-sub">'+fv(m.num_users)+' watching</div></div></a>';
-}
-
-async function load(){
+// Live section from Chaturbate API
+async function loadLive(){
   try{
-    // Pull 18 models to fill all sections
-    var r=await fetch(CB+'&limit=18&offset='+Math.floor(Math.random()*50));
+    var r=await fetch('https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=4&offset='+Math.floor(Math.random()*30)+'&gender=f&format=json');
     var d=await r.json();
     var rooms=d.results||[];
-    if(rooms.length<6) return;
-
-    // Top feed — 2 big cards
-    var feed=document.getElementById('feed');
-    feed.innerHTML=rooms.slice(0,2).map(function(m){
-      return '<a class="card" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
-        +'<img class="card-img" src="'+m.image_url+'" alt="" loading="eager">'
-        +'<div class="card-body"><div class="card-label">'+cap()+'</div>'
-        +'<div class="card-arrow">'+fv(m.num_users)+' watching &rarr;</div></div></a>';
+    if(!rooms.length) return;
+    document.getElementById('live').innerHTML=rooms.map(function(m){
+      return '<a class="thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
+        +'<img src="'+m.image_url+'" alt="" loading="lazy">'
+        +'<div class="thumb-cap">'+cap()+' &middot; '+fv(m.num_users)+' watching</div></a>';
     }).join('');
-
-    // Grid 1 — 4 thumbs
-    document.getElementById('grid1').innerHTML=rooms.slice(2,6).map(mkThumb).join('');
-
-    // Grid 2 — 3 thumbs
-    document.getElementById('grid2').innerHTML=rooms.slice(6,9).map(mkThumb).join('');
-
-    // Grid 3 — 2 thumbs
-    document.getElementById('grid3').innerHTML=rooms.slice(9,11).map(mkThumb).join('');
-
   }catch(e){}
 }
-load();
-setInterval(load,90000);
+loadLive();
+setInterval(loadLive,90000);
 
 // URL param variants
-var p=new URLSearchParams(location.search);
-var t=p.get('t');
-var h=document.getElementById('heroTitle');
+var t=new URLSearchParams(location.search).get('t');
+var h=document.getElementById('h');
 if(t==='more') h.textContent='more from her';
 else if(t==='full') h.textContent='full set';
 else if(t==='source') h.textContent='source + more';
-else if(t==='creator') h.textContent='more from this creator';
 else if(t==='part2') h.textContent='part 2';
 </script>
 </body>
