@@ -7,52 +7,31 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial,sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
-.page{max-width:480px;margin:0 auto;padding:12px 12px 40px}
-
-/* Hero */
-.hero{text-align:center;padding:16px 0 12px}
-.hero h1{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
-.hero p{font-size:12px;color:#666}
-
-/* Content cards */
-.feed{display:flex;flex-direction:column;gap:10px}
-.card{background:#111;border:1px solid #1a1a1a;border-radius:12px;overflow:hidden;text-decoration:none;display:block;transition:transform .15s,border-color .15s;color:#fff}
+.page{max-width:480px;margin:0 auto;padding:10px 10px 40px}
+.hero{padding:12px 0 8px}
+.hero h1{font-size:16px;font-weight:600;color:#ccc;margin-bottom:2px}
+.hero p{font-size:11px;color:#444}
+.feed{display:flex;flex-direction:column;gap:8px}
+.card{background:#111;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;text-decoration:none;display:block;transition:transform .12s;color:#fff}
 .card:active{transform:scale(.98)}
-.card:hover{border-color:#ff4500}
 .card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0a0a0a}
-.card-body{padding:10px 12px}
-.card-label{font-size:13px;font-weight:600;color:#eee;margin-bottom:3px}
-.card-sub{font-size:10px;color:#555}
-.card-cta{display:inline-block;margin-top:8px;padding:8px 20px;background:#ff4500;color:#fff;font-size:12px;font-weight:700;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
-
-/* Live section */
-.section-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#555;margin:16px 0 8px;display:flex;align-items:center;gap:6px}
-.section-label .dot{width:6px;height:6px;background:#ff4500;border-radius:50%;animation:pulse 1.5s infinite}
+.card-body{padding:8px 10px;display:flex;justify-content:space-between;align-items:center}
+.card-label{font-size:12px;color:#bbb;flex:1}
+.card-arrow{font-size:11px;color:#666;padding-left:8px}
+.section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#333;margin:14px 0 6px;display:flex;align-items:center;gap:6px}
+.section-label .dot{width:5px;height:5px;background:#ff4500;border-radius:50%;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-.cam-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.cam{background:#111;border-radius:10px;overflow:hidden;text-decoration:none;display:block;border:1px solid #1a1a1a;transition:border-color .15s}
-.cam:hover{border-color:#ff4500}
-.cam img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0a0a0a}
-.cam-info{padding:6px 8px}
-.cam-name{font-size:12px;font-weight:600;color:#eee}
-.cam-viewers{font-size:10px;color:#666}
-
-/* More content grid */
-.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.more-card{background:#111;border:1px solid #1a1a1a;border-radius:10px;padding:14px 12px;text-decoration:none;text-align:center;transition:all .15s;display:block;color:#ddd}
-.more-card:active{transform:scale(.97)}
-.more-card:hover{border-color:#ff4500}
-.more-card .icon{font-size:24px;margin-bottom:6px;display:block}
-.more-card .label{font-size:12px;font-weight:600;color:#eee}
-.more-card .sub{font-size:10px;color:#555;margin-top:2px}
-
-/* Footer */
-.footer{text-align:center;font-size:9px;color:#1a1a1a;line-height:1.8;margin-top:20px;padding:0 20px}
-.footer a{color:#333;text-decoration:none}
-
-/* Skeleton */
-.skel{background:linear-gradient(90deg,#111 25%,#1a1a1a 50%,#111 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:10px;aspect-ratio:4/3}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px}
+.thumb{background:#111;border-radius:8px;overflow:hidden;text-decoration:none;display:block;border:1px solid #1a1a1a;transition:border-color .12s}
+.thumb:active{transform:scale(.97)}
+.thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0a0a0a}
+.thumb-info{padding:5px 7px}
+.thumb-name{font-size:11px;font-weight:500;color:#ccc;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.thumb-sub{font-size:9px;color:#444}
+.footer{text-align:center;font-size:8px;color:#181818;line-height:1.8;margin-top:16px;padding:0 20px}
+.footer a{color:#222;text-decoration:none}
+.skel{background:linear-gradient(90deg,#111 25%,#1a1a1a 50%,#111 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:8px;aspect-ratio:4/3}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 </style>
 </head>
@@ -60,112 +39,97 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
 <div class="page">
 
   <div class="hero">
-    <h1>More like this</h1>
-    <p>Tap any card for full content</p>
+    <h1 id="heroTitle">more like this</h1>
+    <p>tap to continue</p>
   </div>
 
-  <!-- Top picks — content cards -->
-  <div class="feed" id="topPicks">
-    <a class="card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top1" target="_blank" rel="noopener">
-      <div style="background:#111;padding:40px;text-align:center;color:#333;font-size:12px">Loading preview...</div>
-      <div class="card-body">
-        <div class="card-label">Trending right now</div>
-        <div class="card-sub">Live &bull; Free to watch</div>
-        <div class="card-cta">Watch now</div>
-      </div>
-    </a>
+  <!-- Main feed — populated by API -->
+  <div class="feed" id="feed">
+    <div style="padding:20px;text-align:center"><div class="skel" style="aspect-ratio:16/9;margin-bottom:6px"></div><div class="skel" style="aspect-ratio:16/9"></div></div>
   </div>
 
-  <!-- Live now -->
-  <div class="section-label"><div class="dot"></div>Live now</div>
-  <div class="cam-grid" id="camGrid">
-    <div class="skel"></div>
-    <div class="skel"></div>
-    <div class="skel"></div>
-    <div class="skel"></div>
-  </div>
+  <!-- Scrollable grid -->
+  <div class="section-label"><div class="dot"></div>more girls live now</div>
+  <div class="grid" id="grid1"><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
 
-  <!-- More content -->
-  <div class="section-label">More content</div>
-  <div class="more-grid">
-    <a class="more-card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=more1" target="_blank" rel="noopener">
-      <span class="icon">🔥</span>
-      <div class="label">Watch more</div>
-      <div class="sub">Trending girls live</div>
-    </a>
-    <a class="more-card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=more2" target="_blank" rel="noopener">
-      <span class="icon">🍑</span>
-      <div class="label">More like her</div>
-      <div class="sub">Thick &bull; curvy &bull; live</div>
-    </a>
-    <a class="more-card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=full" target="_blank" rel="noopener">
-      <span class="icon">▶️</span>
-      <div class="label">Full videos</div>
-      <div class="sub">No signup needed</div>
-    </a>
-    <a class="more-card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top" target="_blank" rel="noopener">
-      <span class="icon">⭐</span>
-      <div class="label">Top picks today</div>
-      <div class="sub">Editor's choice</div>
-    </a>
-  </div>
+  <div class="section-label">you might also like</div>
+  <div class="grid3" id="grid2"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
 
-  <!-- AdultForce banner ads -->
-  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px">
-    <iframe width="300" height="250" scrolling="no" frameborder="0" src="https://a.adtng.com/get/10016724" allowtransparency="true" marginheight="0" marginwidth="0" name="spot_id_10016724"></iframe>
-    <iframe width="300" height="250" scrolling="no" frameborder="0" src="https://a.adtng.com/get/10016725" allowtransparency="true" marginheight="0" marginwidth="0" name="spot_id_10016725"></iframe>
-    <iframe width="300" height="250" scrolling="no" frameborder="0" src="https://a.adtng.com/get/10016726" allowtransparency="true" marginheight="0" marginwidth="0" name="spot_id_10016726"></iframe>
+  <div class="section-label">trending this week</div>
+  <div class="grid" id="grid3"><div class="skel"></div><div class="skel"></div></div>
+
+  <!-- AdultForce -->
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px">
+    <iframe width="300" height="250" scrolling="no" frameborder="0" src="https://a.adtng.com/get/10016724" allowtransparency="true" marginheight="0" marginwidth="0" name="spot_id_10016724" style="border-radius:8px;overflow:hidden"></iframe>
   </div>
 
   <div class="footer">
-    18+ only. By continuing you confirm you are of legal age.<br>
-    <a href="https://reddit.com/r/chibigbootygirls">r/chibigbootygirls</a>
+    18+ only &bull; <a href="https://reddit.com/r/chibigbootygirls">r/chibigbootygirls</a>
   </div>
 
 </div>
 
 <script>
-var API='https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=6&offset=0&gender=f&format=json';
+var CB='https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&gender=f&format=json';
 
-function fmtV(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
+function fv(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
+
+// Casual captions that feel human
+var captions=[
+  "she didn't stop after this","more from her","this gets better","yeah there's more lol",
+  "she's still going","more of this","full thing here","she went off","still live rn",
+  "way more here","this one's wild","she keeps going","more from tonight",
+  "couldn't stop watching","there's a part 2","she's on rn","more where this came from"
+];
+function cap(){return captions[Math.floor(Math.random()*captions.length)]}
+
+function mkThumb(m){
+  return '<a class="thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
+    +'<img src="'+m.image_url+'" alt="" loading="lazy">'
+    +'<div class="thumb-info"><div class="thumb-name">'+cap()+'</div>'
+    +'<div class="thumb-sub">'+fv(m.num_users)+' watching</div></div></a>';
+}
 
 async function load(){
-  var grid=document.getElementById('camGrid');
-  var top=document.getElementById('topPicks');
   try{
-    var r=await fetch(API);
+    // Pull 18 models to fill all sections
+    var r=await fetch(CB+'&limit=18&offset='+Math.floor(Math.random()*50));
     var d=await r.json();
     var rooms=d.results||[];
-    // Top card — first model
-    if(rooms[0]){
-      var m=rooms[0];
-      top.innerHTML='<a class="card" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
+    if(rooms.length<6) return;
+
+    // Top feed — 2 big cards
+    var feed=document.getElementById('feed');
+    feed.innerHTML=rooms.slice(0,2).map(function(m){
+      return '<a class="card" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
         +'<img class="card-img" src="'+m.image_url+'" alt="" loading="eager">'
-        +'<div class="card-body"><div class="card-label">'+m.display_name+' is live</div>'
-        +'<div class="card-sub">'+fmtV(m.num_users)+' watching now</div>'
-        +'<div class="card-cta">Watch live</div></div></a>';
-    }
-    // Grid — next 4
-    grid.innerHTML=rooms.slice(1,5).map(function(m){
-      return '<a class="cam" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener">'
-        +'<img src="'+m.image_url+'" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0a0a0a">'
-        +'<div class="cam-info"><div class="cam-name">'+m.display_name+'</div>'
-        +'<div class="cam-viewers">'+fmtV(m.num_users)+' watching</div></div></a>';
+        +'<div class="card-body"><div class="card-label">'+cap()+'</div>'
+        +'<div class="card-arrow">'+fv(m.num_users)+' watching &rarr;</div></div></a>';
     }).join('');
-  }catch(e){
-    grid.innerHTML='<a class="more-card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=fallback" target="_blank" style="grid-column:1/-1"><div class="label">Browse live content</div></a>';
-  }
+
+    // Grid 1 — 4 thumbs
+    document.getElementById('grid1').innerHTML=rooms.slice(2,6).map(mkThumb).join('');
+
+    // Grid 2 — 3 thumbs
+    document.getElementById('grid2').innerHTML=rooms.slice(6,9).map(mkThumb).join('');
+
+    // Grid 3 — 2 thumbs
+    document.getElementById('grid3').innerHTML=rooms.slice(9,11).map(mkThumb).join('');
+
+  }catch(e){}
 }
 load();
-setInterval(load,60000);
+setInterval(load,90000);
 
-// URL param support for landing variants
+// URL param variants
 var p=new URLSearchParams(location.search);
-var h=document.querySelector('.hero h1');
-if(p.get('t')==='more') h.textContent='More from her';
-else if(p.get('t')==='full') h.textContent='Full set';
-else if(p.get('t')==='source') h.textContent='Source + more';
-else if(p.get('t')==='creator') h.textContent='More from this creator';
+var t=p.get('t');
+var h=document.getElementById('heroTitle');
+if(t==='more') h.textContent='more from her';
+else if(t==='full') h.textContent='full set';
+else if(t==='source') h.textContent='source + more';
+else if(t==='creator') h.textContent='more from this creator';
+else if(t==='part2') h.textContent='part 2';
 </script>
 </body>
 </html>
