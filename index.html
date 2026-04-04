@@ -35,12 +35,12 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
   <div class="hero"><h1 id="h">more like this</h1></div>
 
   <div class="feed">
-    <!-- Top post from sub — real image -->
-    <a class="card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top1" target="_blank" rel="noopener">
+    <!-- Top cards — Jerkmate (FansRevenue) -->
+    <a class="card" href="https://jerkmate.com/cam/romyrich?aff_id=409576&xid=fr1&campaign_name=romyrich&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img class="card-img" src="https://i.redd.it/qamwo7aph1ud1.jpeg" alt="" loading="eager">
       <div class="card-body"><div class="card-label">more from her</div><div class="card-arrow">&rarr;</div></div>
     </a>
-    <a class="card" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=top2" target="_blank" rel="noopener">
+    <a class="card" href="https://jerkmate.com/cam/sarareynolds?aff_id=409576&xid=fr1&campaign_name=sarareynolds&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img class="card-img" src="https://i.redd.it/bv4xqyn5lkvd1.jpeg" alt="" loading="eager">
       <div class="card-body"><div class="card-label">she gets crazier after this</div><div class="card-arrow">&rarr;</div></div>
     </a>
@@ -48,7 +48,8 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
 
   <div class="divider"><div class="dot"></div>more from the sub</div>
   <div class="grid">
-    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g1" target="_blank" rel="noopener">
+    <!-- Mix of Jerkmate + Chaturbate links -->
+    <a class="thumb" href="https://jerkmate.com/cam/jadelavoie?aff_id=409576&xid=fr1&campaign_name=jadelavoie&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img src="https://i.redd.it/rjec3h5tpzfc1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">full set &rarr;</div>
     </a>
@@ -60,7 +61,7 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
       <img src="https://i.redd.it/zdutm6ye265f1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">source + more &rarr;</div>
     </a>
-    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g4" target="_blank" rel="noopener">
+    <a class="thumb" href="https://jerkmate.com/cam/leamary?aff_id=409576&xid=fr1&campaign_name=leamary&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img src="https://i.redd.it/ajbnp0bkf2td1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">watch more &rarr;</div>
     </a>
@@ -68,7 +69,7 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
 
   <div class="divider">trending right now</div>
   <div class="grid">
-    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g5" target="_blank" rel="noopener">
+    <a class="thumb" href="https://jerkmate.com/cam/romyrich?aff_id=409576&xid=fr1&campaign_name=romyrich_t1&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img src="https://i.redd.it/u8nxx10483sd1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">this gets better &rarr;</div>
     </a>
@@ -80,7 +81,7 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
       <img src="https://i.redd.it/3dxydcvvorrd1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">she has more &rarr;</div>
     </a>
-    <a class="thumb" href="https://chaturbate.com/in/?tour=9oGW&campaign=keithbo1&track=g8" target="_blank" rel="noopener">
+    <a class="thumb" href="https://jerkmate.com/cam/sarareynolds?aff_id=409576&xid=fr1&campaign_name=sarareynolds_t2&thumbfrm=1&display=form2" target="_blank" rel="noopener">
       <img src="https://i.redd.it/ktljij75c0ge1.jpeg" alt="" loading="lazy">
       <div class="thumb-cap">full clip &rarr;</div>
     </a>
@@ -105,7 +106,7 @@ var caps=["she's still going","more from tonight","way more here","she went off"
 function cap(){return caps[Math.floor(Math.random()*caps.length)]}
 function fv(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
 
-// Live section from Chaturbate API
+// Live section from Chaturbate API (revshare)
 async function loadLive(){
   try{
     var r=await fetch('https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=4&offset='+Math.floor(Math.random()*30)+'&gender=f&format=json');
