@@ -132,6 +132,25 @@ if(t==='more') h.textContent='more from her';
 else if(t==='full') h.textContent='full set';
 else if(t==='source') h.textContent='source + more';
 else if(t==='part2') h.textContent='part 2';
+
+// Track page visit + all link clicks
+(function(){
+  // Log visit to simple counter API (free, no signup)
+  var img=new Image();
+  img.src='https://hits.sh/keithbo614.github.io.svg?style=flat-square';
+
+  // Track every outbound click
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a[href]');
+    if(!a) return;
+    var href=a.getAttribute('href')||'';
+    if(href.indexOf('http')===0 && href.indexOf('keithbo614')===-1 && href.indexOf('reddit.com/r/chi')===-1){
+      // Send click event to a tracking pixel
+      var t=new Image();
+      t.src='https://hits.sh/keithbo614-click-'+encodeURIComponent(href.split('?')[0].split('/').pop()||'unknown')+'.svg';
+    }
+  });
+})();
 </script>
 </body>
 </html>
