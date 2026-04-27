@@ -6,86 +6,130 @@
 <title>r/chibigbootygirls</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial,sans-serif;min-height:100vh}
-.page{max-width:480px;margin:0 auto;padding:12px 10px 40px}
-.hero{text-align:center;padding:14px 0 10px}
-.hero h1{font-size:16px;font-weight:700;color:#ff4500;letter-spacing:0.5px}
-.hero p{font-size:11px;color:#555;margin-top:3px}
-.section{margin:14px 0}
-.section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#333;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.section-title .dot{width:4px;height:4px;background:#ff4500;border-radius:50%;animation:p 1.5s infinite}
-@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
-.card{background:#111;border:1px solid #1a1a1a;border-radius:10px;overflow:hidden;text-decoration:none;display:block;transition:transform .12s;color:#fff;margin-bottom:8px}
-.card:active{transform:scale(.98)}
+body{background:#000;color:#f0f0f0;font-family:-apple-system,'Segoe UI',Arial,sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
+.page{max-width:480px;margin:0 auto}
+
+/* Header bar — like a social app */
+.header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #111}
+.header h1{font-size:15px;font-weight:700;color:#fff}
+.header .stats{font-size:10px;color:#666}
+.header .live-dot{width:6px;height:6px;background:#ff4500;border-radius:50%;display:inline-block;margin-right:4px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Feed — vertical stack */
+.feed{padding:0 0 20px}
+
+/* Full-width content cards */
+.card{display:block;text-decoration:none;color:#fff;border-bottom:1px solid #111}
+.card:active{opacity:.9}
 .card-img{width:100%;display:block;background:#0a0a0a}
-.card-body{padding:8px 12px;display:flex;justify-content:space-between;align-items:center}
-.card-cta{font-size:12px;font-weight:600;color:#ff4500}
-.card-sub{font-size:10px;color:#555}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.thumb{background:#111;border-radius:8px;overflow:hidden;text-decoration:none;display:block;border:1px solid #1a1a1a}
-.thumb:active{transform:scale(.97)}
-.thumb img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#0a0a0a}
-.thumb-cap{padding:5px 8px;font-size:10px;color:#666}
-.cta-box{background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid #ff4500;border-radius:10px;padding:16px;text-align:center;margin:16px 0}
-.cta-box h3{font-size:14px;color:#ff4500;margin-bottom:5px}
-.cta-box p{font-size:11px;color:#888;margin-bottom:10px}
-.cta-btn{display:inline-block;background:#ff4500;color:#fff;font-size:12px;font-weight:600;padding:10px 24px;border-radius:20px;text-decoration:none}
-.footer{text-align:center;font-size:8px;color:#151515;line-height:1.8;margin-top:16px}
+.card-bar{padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
+.card-cap{font-size:13px;color:#ccc}
+.card-action{font-size:12px;font-weight:600;color:#ff4500}
+
+/* Live cams grid */
+.live-section{padding:6px 10px 10px}
+.live-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#333;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.live-thumb{border-radius:8px;overflow:hidden;text-decoration:none;display:block;position:relative}
+.live-thumb:active{opacity:.9}
+.live-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0a0a0a}
+.live-thumb .badge{position:absolute;top:6px;left:6px;background:rgba(255,0,0,.85);color:#fff;font-size:8px;font-weight:700;padding:2px 5px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}
+.live-cap{padding:4px 6px;font-size:9px;color:#555;background:#0a0a0a}
+
+/* Divider */
+.divider{padding:0 14px;margin:4px 0}
+.divider-line{height:1px;background:#111}
+
+/* Creator CTA */
+.cta{padding:20px 14px;text-align:center;border-top:1px solid #111}
+.cta h3{font-size:14px;color:#ff4500;margin-bottom:4px}
+.cta p{font-size:11px;color:#666;margin-bottom:10px;line-height:1.4}
+.cta-btn{display:inline-block;background:#ff4500;color:#fff;font-size:12px;font-weight:600;padding:10px 28px;border-radius:24px;text-decoration:none}
+.cta-btn:active{transform:scale(.96)}
+
+.footer{text-align:center;font-size:8px;color:#151515;padding:10px 0 30px}
 .footer a{color:#1a1a1a;text-decoration:none}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="hero">
-    <h1>r/chibigbootygirls</h1>
-    <p>40,000+ members &bull; the best booty on Reddit</p>
+  <!-- Sticky header like a social app -->
+  <div class="header">
+    <h1 id="h">r/chibigbootygirls</h1>
+    <div class="stats"><span class="live-dot"></span>40K+ members</div>
   </div>
 
-  <!-- LIVE CAMS — Chaturbate revshare, each goes to a DIFFERENT girl -->
-  <div class="section">
-    <div class="section-title"><div class="dot"></div>live right now</div>
-    <div class="grid" id="live"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#333">loading live cams...</div></div>
+  <!-- LIVE CAMS — top of feed -->
+  <div class="live-section">
+    <div class="live-label"><span class="live-dot"></span>live right now</div>
+    <div class="live-grid" id="live"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#222">loading...</div></div>
   </div>
 
-  <!-- TOP POSTS — diversified affiliate links -->
-  <div class="section">
-    <div class="section-title">trending this week</div>
-    <div class="grid">
-      <!-- Jerkmate 35% lifetime revshare -->
-      <a class="thumb" href="https://jerkmate.com/?aff_id=409576&xid=fr1&thumbfrm=1&display=form2" target="_blank" rel="noopener" data-track="jm1">
-        <img src="https://i.redd.it/677u3117yksg1.jpeg" alt="" loading="lazy">
-        <div class="thumb-cap">find girls like her &rarr;</div>
-      </a>
-      <!-- Amber Santori — CrakRevenue → Fanvue (makes money) -->
-      <a class="thumb" href="https://t.acust-9.com/409576/10394/0?aff_sub5=SF_006OG000004lmDN" target="_blank" rel="noopener" data-track="amber_fanvue">
-        <img src="https://i.redd.it/mnfw2c2ngbwg1.jpeg" alt="" loading="lazy">
-        <div class="thumb-cap">she went crazy &rarr;</div>
-      </a>
-      <!-- Chaturbate revshare -->
-      <a class="thumb" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=lp_t3" target="_blank" rel="noopener" data-track="cb1">
-        <img src="https://i.redd.it/jcc94rxrrlwg1.jpeg" alt="" loading="lazy">
-        <div class="thumb-cap">watch live &rarr;</div>
-      </a>
-      <!-- CrakRevenue — different tracking -->
-      <a class="thumb" href="https://t.acust-9.com/409576/10394/0?aff_sub5=SF_grid1" target="_blank" rel="noopener" data-track="crak_grid1">
-        <img src="https://i.redd.it/f0p27yczgzug1.jpeg" alt="" loading="lazy">
-        <div class="thumb-cap">more of her &rarr;</div>
-      </a>
-    </div>
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <!-- CONTENT FEED — each card full-width, different affiliate -->
+  <div class="feed">
+
+    <!-- Card 1: CrakRevenue/Amber → Fanvue (the money maker) -->
+    <a class="card" href="https://t.acust-9.com/409576/10394/0?aff_sub5=card1" target="_blank" rel="noopener" data-track="card1_amber">
+      <img class="card-img" src="img/2.webp" alt="" loading="eager">
+      <div class="card-bar">
+        <span class="card-cap">she went crazy on this one</span>
+        <span class="card-action">see more &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 2: Chaturbate revshare -->
+    <a class="card" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=card2" target="_blank" rel="noopener" data-track="card2_cb">
+      <img class="card-img" src="img/3.webp" alt="" loading="lazy">
+      <div class="card-bar">
+        <span class="card-cap">this angle though</span>
+        <span class="card-action">watch live &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 3: LiveJasmin / A.W. Empire 35% revshare -->
+    <a class="card" href="https://www.livejasmin.com/?psid=chibbigbooty&psprogram=revs&campaign=chibigbootygirls" target="_blank" rel="noopener" data-track="card3_lj">
+      <img class="card-img" src="img/5.webp" alt="" loading="lazy">
+      <div class="card-bar">
+        <span class="card-cap">you already know</span>
+        <span class="card-action">watch her &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 4: CrakRevenue SmartLink (different tracking) -->
+    <a class="card" href="https://t.acust-9.com/409576/10394/0?aff_sub5=card4" target="_blank" rel="noopener" data-track="card4_crak">
+      <img class="card-img" src="img/6.webp" alt="" loading="lazy">
+      <div class="card-bar">
+        <span class="card-cap">thighs like that</span>
+        <span class="card-action">more &rarr;</span>
+      </div>
+    </a>
+
+    <!-- Card 5: Jerkmate 35% lifetime revshare -->
+    <a class="card" href="https://jerkmate.com/?aff_id=409576&xid=fr1&thumbfrm=1&display=form2" target="_blank" rel="noopener" data-track="card5_jm">
+      <img class="card-img" src="img/4.webp" alt="" loading="lazy">
+      <div class="card-bar">
+        <span class="card-cap">find girls like this</span>
+        <span class="card-action">go &rarr;</span>
+      </div>
+    </a>
+
   </div>
 
-  <!-- CREATOR CTA -->
-  <div class="cta-box">
-    <h3>Want to be featured?</h3>
-    <p>We promote creators to 40,000+ subscribers. Free setup, we handle everything.</p>
-    <a class="cta-btn" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=I%20want%20to%20get%20promoted" target="_blank" rel="noopener">Get promoted &rarr;</a>
+  <!-- MORE LIVE CAMS -->
+  <div class="live-section">
+    <div class="live-label"><span class="live-dot"></span>more live</div>
+    <div class="live-grid" id="live2"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#222">loading...</div></div>
   </div>
 
-  <!-- MORE LIVE — another set of live cams -->
-  <div class="section">
-    <div class="section-title"><div class="dot"></div>more live cams</div>
-    <div class="grid" id="live2"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#333">loading...</div></div>
+  <!-- CREATOR CTA — at bottom -->
+  <div class="cta">
+    <h3>Got content like this?</h3>
+    <p>We promote creators to 40,000+ subscribers.<br>Posts on our sub hit 12K+ upvotes. Free setup.</p>
+    <a class="cta-btn" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=Hey%20I%20saw%20your%20page%20and%20I%27m%20interested%20in%20getting%20promoted" target="_blank" rel="noopener">Get promoted &rarr;</a>
   </div>
 
   <div class="footer">
@@ -95,11 +139,10 @@ body{background:#080808;color:#f0f0f0;font-family:'Segoe UI',-apple-system,Arial
 </div>
 
 <script>
-var caps=["she's live rn","live now","watch her","streaming now","online now","going crazy rn"];
+var caps=["live rn","going off","streaming now","online","she's on","watch her"];
 function cap(){return caps[Math.floor(Math.random()*caps.length)]}
 function fv(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
 
-// Load TWO sets of live cams — each goes to a DIFFERENT girl
 async function loadLive(elementId, offset){
   try{
     var r=await fetch('https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=4&offset='+offset+'&gender=f&format=json');
@@ -107,14 +150,14 @@ async function loadLive(elementId, offset){
     var rooms=d.results||[];
     if(!rooms.length) return;
     document.getElementById(elementId).innerHTML=rooms.map(function(m){
-      return '<a class="thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener" data-track="live_'+m.username+'">'
+      return '<a class="live-thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener" data-track="live_'+m.username+'">'
+        +'<span class="badge">live</span>'
         +'<img src="'+m.image_url+'" alt="" loading="lazy">'
-        +'<div class="thumb-cap">'+cap()+' &middot; '+fv(m.num_users)+' watching</div></a>';
+        +'</a>';
     }).join('');
   }catch(e){}
 }
 
-// Load different sets so no duplicates
 loadLive('live', Math.floor(Math.random()*20));
 loadLive('live2', Math.floor(Math.random()*20)+20);
 setInterval(function(){
@@ -124,27 +167,24 @@ setInterval(function(){
 
 // URL param variants for comment bot links
 var t=new URLSearchParams(location.search).get('t');
-var h=document.querySelector('.hero h1');
+var h=document.getElementById('h');
 if(t==='more') h.textContent='more from the sub';
 else if(t==='source') h.textContent='found it';
+else if(t==='full') h.textContent='full set';
+else if(t==='part2') h.textContent='part 2';
 
-// TRACKING — log every visit and every click
+// TRACKING
 (function(){
-  // Page visit
   var img=new Image();
   img.src='https://hits.sh/keithbo614.github.io/visit.svg?style=flat-square';
-
-  // Track every outbound click with the specific track param
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href]');
     if(!a) return;
     var href=a.getAttribute('href')||'';
     var track=a.getAttribute('data-track')||'unknown';
     if(href.indexOf('http')===0 && href.indexOf('keithbo614')===-1 && href.indexOf('reddit.com/r/chi')===-1){
-      // Log click with specific tracking
       var t=new Image();
       t.src='https://hits.sh/keithbo614-click-'+track+'.svg';
-      // Also log to a general click counter
       var t2=new Image();
       t2.src='https://hits.sh/keithbo614-clicks-total.svg';
     }
