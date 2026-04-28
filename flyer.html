@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:-apple-system,'Segoe UI',Arial,sans-serif}
+.flyer{width:1080px;min-height:1400px;background:linear-gradient(170deg,#0a0a0a 0%,#111 40%,#0d0d1a 100%);position:relative;overflow:hidden;padding:60px}
+
+/* Subtle background pattern */
+.flyer::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 20%, rgba(255,69,0,.06) 0%, transparent 50%),radial-gradient(circle at 70% 80%, rgba(255,69,0,.04) 0%, transparent 50%);pointer-events:none}
+
+.top{position:relative;z-index:1}
+.badge{display:inline-block;background:rgba(255,69,0,.15);border:1px solid rgba(255,69,0,.3);color:#ff4500;font-size:18px;font-weight:700;padding:8px 20px;border-radius:30px;letter-spacing:2px;text-transform:uppercase;margin-bottom:30px}
+.sub-name{font-size:56px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:12px}
+.sub-name span{color:#ff4500}
+.tagline{font-size:22px;color:#888;margin-bottom:50px}
+
+/* Stats row */
+.stats{display:flex;gap:30px;margin-bottom:60px;position:relative;z-index:1}
+.stat{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px 20px;text-align:center}
+.stat-num{font-size:42px;font-weight:800;color:#ff4500;display:block}
+.stat-label{font-size:16px;color:#666;margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+
+/* Services */
+.section-title{font-size:18px;font-weight:700;color:#444;text-transform:uppercase;letter-spacing:3px;margin-bottom:24px;position:relative;z-index:1}
+.services{position:relative;z-index:1;margin-bottom:50px}
+.service{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.service:last-child{border-bottom:none}
+.dot{width:8px;height:8px;background:#ff4500;border-radius:50%;flex-shrink:0}
+.service-text{font-size:24px;color:#ddd;flex:1}
+.service-price{font-size:20px;color:#ff4500;font-weight:600}
+
+/* Reach proof */
+.reach{position:relative;z-index:1;background:rgba(255,69,0,.06);border:1px solid rgba(255,69,0,.12);border-radius:16px;padding:30px;margin-bottom:50px;text-align:center}
+.reach-text{font-size:20px;color:#999;margin-bottom:8px}
+.reach-big{font-size:36px;font-weight:800;color:#fff}
+.reach-big span{color:#ff4500}
+
+/* Contact */
+.contact{position:relative;z-index:1;text-align:center;padding:30px 0}
+.contact-label{font-size:16px;color:#555;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+.contact-email{font-size:28px;font-weight:700;color:#ff4500;margin-bottom:8px}
+.contact-alt{font-size:18px;color:#666}
+
+/* Footer */
+.footer{position:relative;margin-top:30px;text-align:center;font-size:14px;color:#333;z-index:1}
+</style>
+</head>
+<body>
+<div class="flyer">
+  <div class="top">
+    <div class="badge">Reddit Promotion</div>
+    <div class="sub-name">r/<span>chibigbooty</span>girls</div>
+    <div class="tagline">The biggest booty community on Reddit</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">40K+</span>
+      <span class="stat-label">Subscribers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">300+</span>
+      <span class="stat-label">New Daily</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">12K+</span>
+      <span class="stat-label">Top Upvotes</span>
+    </div>
+  </div>
+
+  <div class="section-title">What We Offer</div>
+  <div class="services">
+    <div class="service">
+      <div class="dot"></div>
+      <span class="service-text">Featured post on the sub</span>
+      <span class="service-price">Free</span>
+    </div>
+    <div class="service">
+      <div class="dot"></div>
+      <span class="service-text">24-hour pinned post</span>
+      <span class="service-price">DM for pricing</span>
+    </div>
+    <div class="service">
+      <div class="dot"></div>
+      <span class="service-text">Regular content rotation</span>
+      <span class="service-price">Free</span>
+    </div>
+    <div class="service">
+      <div class="dot"></div>
+      <span class="service-text">Crosspost to 11 subs (11M+ members)</span>
+      <span class="service-price">Included</span>
+    </div>
+    <div class="service">
+      <div class="dot"></div>
+      <span class="service-text">Full page promotion + management</span>
+      <span class="service-price">Rev share</span>
+    </div>
+  </div>
+
+  <div class="reach">
+    <div class="reach-text">Our posts regularly reach</div>
+    <div class="reach-big"><span>millions</span> of views</div>
+    <div class="reach-text" style="margin-top:8px">Top post: 12,000+ upvotes in one week</div>
+  </div>
+
+  <div class="contact">
+    <div class="contact-label">Get in touch</div>
+    <div class="contact-email">chibigbootygirls@gmail.com</div>
+    <div class="contact-alt">Reddit DM: u/Affectionate_Lunch_9</div>
+  </div>
+
+  <div class="footer">18+ only &bull; Thick & curvy creators preferred &bull; All platforms welcome (OF, Fansly, Fanvue, etc.)</div>
+</div>
+</body>
+</html>
