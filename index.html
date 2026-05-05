@@ -2,176 +2,358 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>r/chibigbootygirls</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<title>r/chibigbootygirls • 40K members</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;color:#f0f0f0;font-family:-apple-system,'Segoe UI',Arial,sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
-.page{max-width:480px;margin:0 auto}
+html{scroll-behavior:smooth}
+body{
+  background:#0a0010;
+  color:#fff;
+  font-family:'Inter',-apple-system,'SF Pro Display','Segoe UI',Arial,sans-serif;
+  -webkit-tap-highlight-color:transparent;
+  overscroll-behavior:none;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(236,72,153,.18), transparent 60%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(168,85,247,.12), transparent 70%);
+  background-attachment:fixed;
+  min-height:100vh;
+}
+.page{max-width:430px;margin:0 auto;position:relative;padding-bottom:100px}
 
-/* Header bar — like a social app */
-.header{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #111}
-.header h1{font-size:15px;font-weight:700;color:#fff}
-.header .stats{font-size:10px;color:#666}
-.header .live-dot{width:6px;height:6px;background:#ff4500;border-radius:50%;display:inline-block;margin-right:4px;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+/* ── Header ── */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,0,16,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:13px 16px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(236,72,153,.15)}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-logo{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,#ff2d92 0%,#a855f7 100%);
+  border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;color:#fff;
+  letter-spacing:-1px;
+  box-shadow:0 4px 14px rgba(236,72,153,.4),inset 0 1px 0 rgba(255,255,255,.2);
+  flex-shrink:0;
+}
+.brand-text h1{
+  font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;line-height:1.1;
+  background:linear-gradient(90deg,#fff,#ffd0e8);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.brand-text .members{font-size:10px;color:#a855f7;font-weight:600;letter-spacing:.3px;margin-top:1px}
+.live-pill{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(168,85,247,.12));border:1px solid rgba(236,72,153,.4);padding:5px 11px;border-radius:20px}
+.live-dot{width:6px;height:6px;background:#ff2d92;border-radius:50%;animation:pulse 1.4s infinite;box-shadow:0 0 8px #ff2d92}
+.live-pill span{font-size:10px;font-weight:700;color:#ff8cc8;letter-spacing:.4px;text-transform:uppercase}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 
-/* Feed — vertical stack */
-.feed{padding:0 0 20px}
+/* ── Hero strip ── */
+.hero{padding:18px 16px 12px;text-align:center}
+.hero-title{
+  font-size:24px;font-weight:900;letter-spacing:-.6px;line-height:1.1;
+  background:linear-gradient(135deg,#fff 0%,#ffb8e0 50%,#c084fc 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:6px;
+}
+.hero-sub{font-size:12px;color:#a78bfa;font-weight:500;letter-spacing:.2px}
 
-/* Full-width content cards */
-.card{display:block;text-decoration:none;color:#fff;border-bottom:1px solid #111}
-.card:active{opacity:.9}
-.card-img{width:100%;display:block;background:#0a0a0a}
-.card-bar{padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.card-cap{font-size:13px;color:#ccc}
-.card-action{font-size:12px;font-weight:600;color:#ff4500}
+/* ── Section labels ── */
+.section-label{padding:6px 16px 10px;display:flex;align-items:center;gap:8px}
+.section-label .marker{width:18px;height:2px;background:linear-gradient(90deg,#ff2d92,#a855f7);border-radius:2px}
+.section-label span{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff}
+.section-label .count{margin-left:auto;font-size:9px;color:#666;font-weight:600}
 
-/* Live cams grid */
-.live-section{padding:6px 10px 10px}
-.live-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#333;margin-bottom:6px;display:flex;align-items:center;gap:6px}
-.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.live-thumb{border-radius:8px;overflow:hidden;text-decoration:none;display:block;position:relative}
-.live-thumb:active{opacity:.9}
-.live-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#0a0a0a}
-.live-thumb .badge{position:absolute;top:6px;left:6px;background:rgba(255,0,0,.85);color:#fff;font-size:8px;font-weight:700;padding:2px 5px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px}
-.live-cap{padding:4px 6px;font-size:9px;color:#555;background:#0a0a0a}
+/* ── Live cams ── */
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 8px}
+.live-thumb{border-radius:12px;overflow:hidden;text-decoration:none;display:block;position:relative;aspect-ratio:16/9;background:#0a0010;border:1px solid rgba(236,72,153,.1)}
+.live-thumb:active{transform:scale(.98)}
+.live-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.live-badge{position:absolute;top:7px;left:7px;background:#ff2d92;color:#fff;font-size:7px;font-weight:900;padding:3px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.6px;box-shadow:0 2px 8px rgba(255,45,146,.5)}
+.live-name{position:absolute;bottom:0;left:0;right:0;padding:7px 9px 6px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:600;color:#fff;letter-spacing:.2px}
 
-/* Divider */
-.divider{padding:0 14px;margin:4px 0}
-.divider-line{height:1px;background:#111}
+/* ── Feed cards ── */
+.feed{padding:0 12px}
+.card{
+  display:block;text-decoration:none;color:#fff;
+  position:relative;margin:0 0 10px;
+  border-radius:16px;overflow:hidden;
+  background:#0a0010;
+  border:1px solid rgba(236,72,153,.12);
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.card:active{transform:scale(.985);box-shadow:0 4px 16px rgba(236,72,153,.25)}
+.card-num{
+  position:absolute;top:12px;left:12px;z-index:3;
+  font-size:10px;font-weight:900;color:#fff;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
+  padding:4px 10px;border-radius:6px;
+  letter-spacing:1.5px;
+  border:1px solid rgba(255,255,255,.1);
+}
+.card-platform{
+  position:absolute;top:12px;right:12px;z-index:3;
+  font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#fff;
+  background:linear-gradient(135deg,#ff2d92,#a855f7);
+  padding:5px 10px;border-radius:6px;
+  box-shadow:0 4px 12px rgba(236,72,153,.4);
+}
+.card img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.card-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:60px 16px 16px;
+  background:linear-gradient(transparent 0%,rgba(0,0,0,.4) 30%,rgba(0,0,0,.95) 100%);
+  z-index:2;
+}
+.card-caption{font-size:18px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px;letter-spacing:-.3px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.card-cta{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#ff2d92,#a855f7);
+  color:#fff;font-size:12px;font-weight:700;
+  padding:9px 16px;border-radius:24px;
+  letter-spacing:.2px;
+  box-shadow:0 6px 20px rgba(236,72,153,.45),inset 0 1px 0 rgba(255,255,255,.25);
+}
 
-/* Creator CTA */
-.cta{padding:20px 14px;text-align:center;border-top:1px solid #111}
-.cta h3{font-size:14px;color:#ff4500;margin-bottom:4px}
-.cta p{font-size:11px;color:#666;margin-bottom:10px;line-height:1.4}
-.cta-btn{display:inline-block;background:#ff4500;color:#fff;font-size:12px;font-weight:600;padding:10px 28px;border-radius:24px;text-decoration:none}
+/* ── Creator CTA block ── */
+.cta-block{
+  margin:18px 12px 4px;
+  background:
+    linear-gradient(135deg,rgba(236,72,153,.15),rgba(168,85,247,.08)),
+    radial-gradient(circle at 0% 0%,rgba(236,72,153,.2),transparent 50%);
+  border:1px solid rgba(236,72,153,.3);
+  border-radius:18px;padding:22px 18px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-block::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#ff2d92,#a855f7,transparent);
+}
+.cta-block h3{
+  font-size:18px;font-weight:900;color:#fff;margin-bottom:6px;letter-spacing:-.4px;
+  background:linear-gradient(135deg,#fff,#ffb8e0);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.cta-block p{font-size:12px;color:#c4b5fd;line-height:1.5;margin-bottom:15px;font-weight:500}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#ff2d92,#a855f7);
+  color:#fff;font-size:13px;font-weight:800;
+  padding:13px 30px;border-radius:26px;text-decoration:none;
+  letter-spacing:.3px;
+  box-shadow:0 8px 24px rgba(236,72,153,.5),inset 0 1px 0 rgba(255,255,255,.25);
+}
 .cta-btn:active{transform:scale(.96)}
 
-.footer{text-align:center;font-size:8px;color:#151515;padding:10px 0 30px}
-.footer a{color:#1a1a1a;text-decoration:none}
+/* ── Footer ── */
+.footer{text-align:center;font-size:9px;color:#3d2a4d;padding:18px 16px 20px;line-height:1.8}
+.footer a{color:#5b3d70;text-decoration:none}
+
+/* ── Sticky bottom CTA ── */
+.sticky-bar{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:430px;
+  padding:10px 12px 18px;
+  background:linear-gradient(transparent,rgba(10,0,16,.98) 35%);
+  pointer-events:none;z-index:99;
+}
+.sticky-bar a{
+  pointer-events:all;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,#ff2d92,#a855f7);
+  color:#fff;text-align:center;
+  font-size:14px;font-weight:800;
+  padding:15px 18px;border-radius:16px;text-decoration:none;
+  letter-spacing:.2px;
+  box-shadow:0 8px 28px rgba(236,72,153,.55),0 0 0 1px rgba(236,72,153,.3),inset 0 1px 0 rgba(255,255,255,.2);
+  position:relative;overflow:hidden;
+}
+.sticky-bar a::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  animation:shimmer 3s infinite;
+}
+@keyframes shimmer{0%{left:-100%}50%,100%{left:100%}}
+.sticky-bar a:active{transform:scale(.98)}
+.sticky-pulse{width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1.4s infinite;box-shadow:0 0 8px #fff}
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- Sticky header like a social app -->
   <div class="header">
-    <h1 id="h">r/chibigbootygirls</h1>
-    <div class="stats"><span class="live-dot"></span>40K+ members</div>
+    <div class="brand">
+      <div class="brand-logo">r/</div>
+      <div class="brand-text">
+        <h1>chibigbootygirls</h1>
+        <div class="members">40K+ members &bull; community</div>
+      </div>
+    </div>
+    <div class="live-pill">
+      <div class="live-dot"></div>
+      <span>live</span>
+    </div>
   </div>
 
-  <!-- LIVE CAMS — top of feed -->
-  <div class="live-section">
-    <div class="live-label"><span class="live-dot"></span>live right now</div>
-    <div class="live-grid" id="live"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#222">loading...</div></div>
+  <div class="hero">
+    <div class="hero-title">PAWG Heaven</div>
+    <div class="hero-sub">curated drops &bull; updated daily</div>
   </div>
 
-  <div class="divider"><div class="divider-line"></div></div>
+  <!-- Live cams top -->
+  <div class="section-label">
+    <div class="marker"></div>
+    <span>streaming now</span>
+    <div class="count">live cams</div>
+  </div>
+  <div class="live-grid" id="live">
+    <div style="grid-column:1/-1;padding:14px;text-align:center;font-size:10px;color:#3d2a4d">loading live...</div>
+  </div>
 
-  <!-- CONTENT FEED — each card full-width, different affiliate -->
+  <div class="section-label">
+    <div class="marker"></div>
+    <span>top picks</span>
+    <div class="count">5 spots</div>
+  </div>
+
+  <!-- Feed -->
   <div class="feed">
 
-    <!-- Card 1: Amber Santori → Fanvue (her actual photo) -->
-    <a class="card" href="https://t.acust-9.com/409576/10394/0?aff_sub5=card1" target="_blank" rel="noopener" data-track="card1_amber">
-      <img class="card-img" src="img/amber_avatar.webp" alt="" loading="eager">
-      <div class="card-bar">
-        <span class="card-cap">Amber Santori</span>
-        <span class="card-action">Fanvue &rarr;</span>
+    <!-- Card 1: Fanvue -->
+    <a class="card" href="https://t.acust-9.com/409576/10394/0?aff_sub5=card1" target="_blank" rel="noopener" data-track="card1_fv">
+      <div class="card-num">#01</div>
+      <div class="card-platform">Fanvue</div>
+      <img src="img/3.webp" alt="" loading="eager">
+      <div class="card-overlay">
+        <div class="card-caption">subscribe to her uncensored page</div>
+        <div class="card-cta">
+          See full set
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </a>
 
-    <!-- Card 2: Chaturbate revshare -->
-    <a class="card" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=card2" target="_blank" rel="noopener" data-track="card2_cb">
-      <img class="card-img" src="img/1.webp" alt="" loading="lazy">
-      <div class="card-bar">
-        <span class="card-cap">she went crazy on this one</span>
-        <span class="card-action">Chaturbate &rarr;</span>
+    <!-- Card 2: Chaturbate — direct signup -->
+    <a class="card" href="https://chaturbate.com/in/?tour=eQof&campaign=StgxX&track=card2&signup_notice=1" target="_blank" rel="noopener" data-track="card2_cb">
+      <div class="card-num">#02</div>
+      <div class="card-platform">Live now</div>
+      <img src="img/1.webp" alt="" loading="lazy">
+      <div class="card-overlay">
+        <div class="card-caption">she's on cam right now &mdash; free signup</div>
+        <div class="card-cta">
+          Watch her live
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </a>
 
-    <!-- Card 3: LiveJasmin / A.W. Empire 35% revshare -->
-    <a class="card" href="https://www.livejasmin.com/?psid=chibbigbooty&psprogram=revs&campaign=chibigbootygirls" target="_blank" rel="noopener" data-track="card3_lj">
-      <img class="card-img" src="img/2.webp" alt="" loading="lazy">
-      <div class="card-bar">
-        <span class="card-cap">this angle though</span>
-        <span class="card-action">LiveJasmin &rarr;</span>
+    <!-- Card 3: Jerkmate — Romy -->
+    <a class="card" href="https://jerkmate.com/cam/itsromyrich?aff_id=409576&xid=fr1&campaign_name=itsromyrich&thumbfrm=1&display=form2" target="_blank" rel="noopener" data-track="card3_jm">
+      <div class="card-num">#03</div>
+      <div class="card-platform">Cam show</div>
+      <img src="img/2.webp" alt="" loading="lazy">
+      <div class="card-overlay">
+        <div class="card-caption">going off in private right now</div>
+        <div class="card-cta">
+          Join free
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </a>
 
-    <!-- Card 4: MYM 5% commission via FansRevenue -->
-    <a class="card" href="https://mym.camlinks.io/?aff_id=409576" target="_blank" rel="noopener" data-track="card4_mym">
-      <img class="card-img" src="img/5.webp" alt="" loading="lazy">
-      <div class="card-bar">
-        <span class="card-cap">thighs like that</span>
-        <span class="card-action">MYM &rarr;</span>
+    <!-- Card 4: LiveJasmin -->
+    <a class="card" href="https://www.livejasmin.com/?psid=chibbigbooty&psprogram=revs&campaign=chibigbootygirls" target="_blank" rel="noopener" data-track="card4_lj">
+      <div class="card-num">#04</div>
+      <div class="card-platform">Premium</div>
+      <img src="img/5.webp" alt="" loading="lazy">
+      <div class="card-overlay">
+        <div class="card-caption">this angle &mdash; you have to see it</div>
+        <div class="card-cta">
+          Watch on LiveJasmin
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </a>
 
-    <!-- Card 5: Romy Rich — direct to her Jerkmate page -->
-    <a class="card" href="https://jerkmate.com/cam/itsromyrich?aff_id=409576&xid=fr1&campaign_name=itsromyrich&thumbfrm=1&display=form2" target="_blank" rel="noopener" data-track="card5_romy">
-      <img class="card-img" src="romy.jpg" alt="" loading="lazy">
-      <div class="card-bar">
-        <span class="card-cap">Romy Rich</span>
-        <span class="card-action">Jerkmate &rarr;</span>
+    <!-- Card 5: MYM -->
+    <a class="card" href="https://mym.camlinks.io/?aff_id=409576" target="_blank" rel="noopener" data-track="card5_mym">
+      <div class="card-num">#05</div>
+      <div class="card-platform">Full set</div>
+      <img src="img/6.webp" alt="" loading="lazy">
+      <div class="card-overlay">
+        <div class="card-caption">thighs like that don't quit</div>
+        <div class="card-cta">
+          See the full set
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
       </div>
     </a>
 
   </div>
 
-  <!-- MORE LIVE CAMS -->
-  <div class="live-section">
-    <div class="live-label"><span class="live-dot"></span>more live</div>
-    <div class="live-grid" id="live2"><div style="grid-column:1/-1;padding:12px;text-align:center;font-size:10px;color:#222">loading...</div></div>
+  <!-- More live cams -->
+  <div class="section-label" style="margin-top:14px">
+    <div class="marker"></div>
+    <span>more going live</span>
+    <div class="count">free preview</div>
+  </div>
+  <div class="live-grid" id="live2">
+    <div style="grid-column:1/-1;padding:14px;text-align:center;font-size:10px;color:#3d2a4d">loading...</div>
   </div>
 
-  <!-- CREATOR CTA — at bottom -->
-  <div class="cta">
-    <h3>Got content like this?</h3>
-    <p>We promote creators to 40,000+ subscribers.<br>Posts on our sub hit 12K+ upvotes. Free setup.</p>
-    <a class="cta-btn" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=Hey%20I%20saw%20your%20page%20and%20I%27m%20interested%20in%20getting%20promoted" target="_blank" rel="noopener">Get promoted &rarr;</a>
+  <!-- Creator CTA -->
+  <div class="cta-block">
+    <h3>Get featured here</h3>
+    <p>40K active members &bull; posts hit 12K+ upvotes<br>Free promo for creators &mdash; DM us to set it up</p>
+    <a class="cta-btn" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=Hey%20I%20saw%20your%20page%20and%20I%27m%20interested%20in%20getting%20promoted" target="_blank" rel="noopener" data-track="cta_creator">Apply for free promo &rarr;</a>
   </div>
 
   <div class="footer">
-    18+ only &bull; <a href="https://reddit.com/r/chibigbootygirls">r/chibigbootygirls</a>
+    18+ only &bull; <a href="https://reddit.com/r/chibigbootygirls">r/chibigbootygirls</a> &bull; all models 18+
   </div>
+</div>
 
+<!-- Sticky bottom CTA -->
+<div class="sticky-bar">
+  <a href="https://chaturbate.com/in/?tour=eQof&campaign=StgxX&track=sticky&signup_notice=1" target="_blank" rel="noopener" data-track="sticky_cta">
+    <div class="sticky-pulse"></div>
+    Watch girls live now &mdash; free
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M7.5 2 12 6.5 7.5 11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </div>
 
 <script>
-var caps=["live rn","going off","streaming now","online","she's on","watch her"];
-function cap(){return caps[Math.floor(Math.random()*caps.length)]}
-function fv(n){return n>=1000?(n/1000).toFixed(1)+'k':n}
-
-async function loadLive(elementId, offset){
+async function loadLive(elementId,offset){
   try{
     var r=await fetch('https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=4&offset='+offset+'&gender=f&format=json');
     var d=await r.json();
     var rooms=d.results||[];
-    if(!rooms.length) return;
+    if(!rooms.length){document.getElementById(elementId).style.display='none';return;}
     document.getElementById(elementId).innerHTML=rooms.map(function(m){
       return '<a class="live-thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener" data-track="live_'+m.username+'">'
-        +'<span class="badge">live</span>'
+        +'<span class="live-badge">live</span>'
         +'<img src="'+m.image_url+'" alt="" loading="lazy">'
+        +'<div class="live-name">'+(m.display_name||m.username)+'</div>'
         +'</a>';
     }).join('');
-  }catch(e){}
+  }catch(e){document.getElementById(elementId).style.display='none';}
 }
 
-loadLive('live', Math.floor(Math.random()*20));
-loadLive('live2', Math.floor(Math.random()*20)+20);
+loadLive('live',Math.floor(Math.random()*20));
+loadLive('live2',Math.floor(Math.random()*20)+20);
 setInterval(function(){
-  loadLive('live', Math.floor(Math.random()*30));
-  loadLive('live2', Math.floor(Math.random()*30)+30);
-}, 90000);
+  loadLive('live',Math.floor(Math.random()*30));
+  loadLive('live2',Math.floor(Math.random()*30)+30);
+},90000);
 
-// URL param variants for comment bot links
+// URL param variants for comment bot
 var t=new URLSearchParams(location.search).get('t');
-var h=document.getElementById('h');
-if(t==='more') h.textContent='more from the sub';
-else if(t==='source') h.textContent='found it';
-else if(t==='full') h.textContent='full set';
-else if(t==='part2') h.textContent='part 2';
+var h=document.querySelector('.brand-text h1');
+var ht=document.querySelector('.hero-title');
+if(t==='more'){h.textContent='more from the sub';if(ht)ht.textContent='More From the Sub';}
+else if(t==='source'){h.textContent='found it';if(ht)ht.textContent='Source Found';}
+else if(t==='full'){h.textContent='full set here';if(ht)ht.textContent='Full Set Inside';}
+else if(t==='part2'){h.textContent='part 2';if(ht)ht.textContent='Part 2';}
 
 // TRACKING
 (function(){
@@ -179,14 +361,12 @@ else if(t==='part2') h.textContent='part 2';
   img.src='https://hits.sh/keithbo614.github.io/visit.svg?style=flat-square';
   document.addEventListener('click',function(e){
     var a=e.target.closest('a[href]');
-    if(!a) return;
+    if(!a)return;
     var href=a.getAttribute('href')||'';
     var track=a.getAttribute('data-track')||'unknown';
-    if(href.indexOf('http')===0 && href.indexOf('keithbo614')===-1 && href.indexOf('reddit.com/r/chi')===-1){
-      var t=new Image();
-      t.src='https://hits.sh/keithbo614.github.io/click-'+track+'.svg';
-      var t2=new Image();
-      t2.src='https://hits.sh/keithbo614.github.io/clicks-total.svg';
+    if(href.indexOf('http')===0&&href.indexOf('keithbo614')===-1&&href.indexOf('reddit.com/r/chi')===-1){
+      new Image().src='https://hits.sh/keithbo614.github.io/click-'+track+'.svg';
+      new Image().src='https://hits.sh/keithbo614.github.io/clicks-total.svg';
     }
   });
 })();
