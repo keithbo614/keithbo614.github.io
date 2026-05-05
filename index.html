@@ -8,174 +8,214 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:#0a0010;
-  color:#fff;
+  background:#0A0E14;
+  color:#F0F0F2;
   font-family:'Inter',-apple-system,'SF Pro Display','Segoe UI',Arial,sans-serif;
   -webkit-tap-highlight-color:transparent;
   overscroll-behavior:none;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(236,72,153,.18), transparent 60%),
-    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(168,85,247,.12), transparent 70%);
-  background-attachment:fixed;
   min-height:100vh;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,179,57,.12), transparent 65%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(0,184,255,.08), transparent 70%);
+  background-attachment:fixed;
 }
 .page{max-width:430px;margin:0 auto;position:relative;padding-bottom:100px}
 
 /* ── Header ── */
-.header{position:sticky;top:0;z-index:100;background:rgba(10,0,16,.85);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);padding:13px 16px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(236,72,153,.15)}
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,14,20,.85);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  padding:12px 16px 11px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid #252B36;
+}
 .brand{display:flex;align-items:center;gap:11px}
 .brand-logo{
-  width:36px;height:36px;
-  background:linear-gradient(135deg,#ff2d92 0%,#a855f7 100%);
-  border-radius:11px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;font-weight:900;color:#fff;
-  letter-spacing:-1px;
-  box-shadow:0 4px 14px rgba(236,72,153,.4),inset 0 1px 0 rgba(255,255,255,.2);
+  width:38px;height:38px;border-radius:50%;
+  background:#161A22;
+  border:1.5px solid #E8B339;
+  padding:2px;
   flex-shrink:0;
+  box-shadow:0 0 12px rgba(232,179,57,.25);
 }
+.brand-logo img{width:100%;height:100%;border-radius:50%;display:block}
 .brand-text h1{
-  font-size:15px;font-weight:800;color:#fff;letter-spacing:-.3px;line-height:1.1;
-  background:linear-gradient(90deg,#fff,#ffd0e8);
+  font-size:14px;font-weight:800;letter-spacing:-.2px;line-height:1.15;
+  background:linear-gradient(135deg,#FFD15C,#E8B339);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-.brand-text .members{font-size:10px;color:#a855f7;font-weight:600;letter-spacing:.3px;margin-top:1px}
-.live-pill{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(236,72,153,.18),rgba(168,85,247,.12));border:1px solid rgba(236,72,153,.4);padding:5px 11px;border-radius:20px}
-.live-dot{width:6px;height:6px;background:#ff2d92;border-radius:50%;animation:pulse 1.4s infinite;box-shadow:0 0 8px #ff2d92}
-.live-pill span{font-size:10px;font-weight:700;color:#ff8cc8;letter-spacing:.4px;text-transform:uppercase}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.brand-text .members{font-size:10px;color:#8A93A6;font-weight:600;margin-top:2px}
+.join-btn{
+  background:linear-gradient(135deg,#00B8FF,#4FD4FF);
+  color:#0A0E14;
+  font-size:11px;font-weight:800;
+  padding:7px 14px;border-radius:18px;
+  text-decoration:none;letter-spacing:.3px;
+  box-shadow:0 4px 14px rgba(0,184,255,.4),inset 0 1px 0 rgba(255,255,255,.3);
+  text-transform:uppercase;
+}
 
-/* ── Hero strip ── */
-.hero{padding:18px 16px 12px;text-align:center}
+/* ── Hero ── */
+.hero{padding:24px 16px 6px;text-align:center}
+.hero-eyebrow{
+  display:inline-block;
+  font-size:9px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+  color:#E8B339;
+  background:rgba(232,179,57,.08);
+  border:1px solid rgba(232,179,57,.25);
+  padding:5px 12px;border-radius:20px;
+  margin-bottom:14px;
+}
 .hero-title{
-  font-size:24px;font-weight:900;letter-spacing:-.6px;line-height:1.1;
-  background:linear-gradient(135deg,#fff 0%,#ffb8e0 50%,#c084fc 100%);
+  font-size:30px;font-weight:900;letter-spacing:-1px;line-height:1.05;
+  background:linear-gradient(135deg,#FFD15C 0%,#E8B339 60%,#00B8FF 100%);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
-.hero-sub{font-size:12px;color:#a78bfa;font-weight:500;letter-spacing:.2px}
+.hero-sub{font-size:13px;color:#8A93A6;font-weight:500;line-height:1.5;margin-bottom:18px}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#00B8FF,#4FD4FF);
+  color:#0A0E14;
+  font-size:14px;font-weight:800;letter-spacing:.2px;
+  padding:13px 28px;border-radius:26px;
+  text-decoration:none;
+  box-shadow:0 8px 24px rgba(0,184,255,.4),inset 0 1px 0 rgba(255,255,255,.3);
+}
+.hero-meta{font-size:10px;color:#5A6378;margin-top:10px;letter-spacing:.5px}
 
 /* ── Section labels ── */
-.section-label{padding:6px 16px 10px;display:flex;align-items:center;gap:8px}
-.section-label .marker{width:18px;height:2px;background:linear-gradient(90deg,#ff2d92,#a855f7);border-radius:2px}
-.section-label span{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#fff}
-.section-label .count{margin-left:auto;font-size:9px;color:#666;font-weight:600}
+.section-label{padding:18px 16px 10px;display:flex;align-items:center;gap:10px}
+.section-label .marker{width:18px;height:2px;background:linear-gradient(90deg,#E8B339,#FFD15C);border-radius:2px}
+.section-label span{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:2.2px;color:#F0F0F2}
+.section-label .count{margin-left:auto;font-size:9px;color:#5A6378;font-weight:600;letter-spacing:.5px}
 
 /* ── Live cams ── */
-.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 8px}
-.live-thumb{border-radius:12px;overflow:hidden;text-decoration:none;display:block;position:relative;aspect-ratio:16/9;background:#0a0010;border:1px solid rgba(236,72,153,.1)}
+.live-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 12px 6px}
+.live-thumb{border-radius:12px;overflow:hidden;text-decoration:none;display:block;position:relative;aspect-ratio:16/9;background:#161A22;border:1px solid #252B36}
 .live-thumb:active{transform:scale(.98)}
 .live-thumb img{width:100%;height:100%;object-fit:cover;display:block}
-.live-badge{position:absolute;top:7px;left:7px;background:#ff2d92;color:#fff;font-size:7px;font-weight:900;padding:3px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.6px;box-shadow:0 2px 8px rgba(255,45,146,.5)}
+.live-badge{position:absolute;top:7px;left:7px;background:#FF3B5C;color:#fff;font-size:7px;font-weight:900;padding:3px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.6px;box-shadow:0 2px 8px rgba(255,59,92,.5)}
 .live-name{position:absolute;bottom:0;left:0;right:0;padding:7px 9px 6px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:9px;font-weight:600;color:#fff;letter-spacing:.2px}
 
 /* ── Feed cards ── */
 .feed{padding:0 12px}
 .card{
-  display:block;text-decoration:none;color:#fff;
-  position:relative;margin:0 0 10px;
+  display:block;text-decoration:none;color:#F0F0F2;
+  margin:0 0 12px;
   border-radius:16px;overflow:hidden;
-  background:#0a0010;
-  border:1px solid rgba(236,72,153,.12);
-  box-shadow:0 8px 32px rgba(0,0,0,.4);
-  transition:transform .18s ease,box-shadow .18s ease;
+  background:#161A22;
+  border:1px solid #252B36;
+  box-shadow:0 8px 28px rgba(0,0,0,.45);
+  transition:transform .18s ease,border-color .18s ease;
 }
-.card:active{transform:scale(.985);box-shadow:0 4px 16px rgba(236,72,153,.25)}
-.card-num{
-  position:absolute;top:12px;left:12px;z-index:3;
-  font-size:10px;font-weight:900;color:#fff;
-  background:rgba(0,0,0,.55);backdrop-filter:blur(8px);
-  padding:4px 10px;border-radius:6px;
-  letter-spacing:1.5px;
-  border:1px solid rgba(255,255,255,.1);
-}
-.card-platform{
-  position:absolute;top:12px;right:12px;z-index:3;
-  font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:#fff;
-  background:linear-gradient(135deg,#ff2d92,#a855f7);
-  padding:5px 10px;border-radius:6px;
-  box-shadow:0 4px 12px rgba(236,72,153,.4);
-}
-.card img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
-.card-overlay{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:60px 16px 16px;
-  background:linear-gradient(transparent 0%,rgba(0,0,0,.4) 30%,rgba(0,0,0,.95) 100%);
+.card:active{transform:scale(.985);border-color:#E8B339}
+
+.card-photo{position:relative;background:#0A0E14}
+.card-photo img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.card-logo{
+  position:absolute;top:10px;left:10px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.15);
+  padding:2px;
   z-index:2;
 }
-.card-caption{font-size:18px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px;letter-spacing:-.3px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.card-logo img{width:100%;height:100%;border-radius:50%;display:block}
+.card-tag{
+  position:absolute;top:10px;right:10px;
+  font-size:9px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;
+  color:#0A0E14;
+  background:linear-gradient(135deg,#FFD15C,#E8B339);
+  padding:5px 10px;border-radius:6px;
+  box-shadow:0 4px 12px rgba(232,179,57,.4);
+  z-index:2;
+}
+
+/* Caption strip BELOW the photo — never overlaid on body */
+.card-bar{
+  padding:14px 16px 16px;
+  background:#161A22;
+  border-top:1px solid #1F2530;
+}
+.card-label{
+  font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+  color:#E8B339;
+  margin-bottom:5px;
+}
+.card-caption{font-size:14px;font-weight:600;color:#F0F0F2;line-height:1.35;margin-bottom:12px}
 .card-cta{
   display:inline-flex;align-items:center;gap:7px;
-  background:linear-gradient(135deg,#ff2d92,#a855f7);
-  color:#fff;font-size:12px;font-weight:700;
-  padding:9px 16px;border-radius:24px;
+  font-size:12px;font-weight:700;color:#0A0E14;
+  background:linear-gradient(135deg,#FFD15C,#E8B339);
+  padding:9px 16px;border-radius:22px;
   letter-spacing:.2px;
-  box-shadow:0 6px 20px rgba(236,72,153,.45),inset 0 1px 0 rgba(255,255,255,.25);
+  box-shadow:0 4px 14px rgba(232,179,57,.35),inset 0 1px 0 rgba(255,255,255,.3);
 }
 
 /* ── Creator CTA block ── */
-.cta-block{
+.creator-block{
   margin:18px 12px 4px;
   background:
-    linear-gradient(135deg,rgba(236,72,153,.15),rgba(168,85,247,.08)),
-    radial-gradient(circle at 0% 0%,rgba(236,72,153,.2),transparent 50%);
-  border:1px solid rgba(236,72,153,.3);
+    linear-gradient(135deg,rgba(232,179,57,.1),rgba(0,184,255,.05)),
+    #161A22;
+  border:1px solid #252B36;
   border-radius:18px;padding:22px 18px;text-align:center;
   position:relative;overflow:hidden;
 }
-.cta-block::before{
+.creator-block::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,#ff2d92,#a855f7,transparent);
+  background:linear-gradient(90deg,transparent,#E8B339,#00B8FF,transparent);
 }
-.cta-block h3{
-  font-size:18px;font-weight:900;color:#fff;margin-bottom:6px;letter-spacing:-.4px;
-  background:linear-gradient(135deg,#fff,#ffb8e0);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
+.creator-block h3{
+  font-size:18px;font-weight:900;color:#F0F0F2;margin-bottom:6px;letter-spacing:-.3px;
 }
-.cta-block p{font-size:12px;color:#c4b5fd;line-height:1.5;margin-bottom:15px;font-weight:500}
-.cta-btn{
+.creator-block p{font-size:12px;color:#8A93A6;line-height:1.55;margin-bottom:15px}
+.creator-block .stat{color:#E8B339;font-weight:700}
+.creator-cta{
   display:inline-block;
-  background:linear-gradient(135deg,#ff2d92,#a855f7);
-  color:#fff;font-size:13px;font-weight:800;
+  background:linear-gradient(135deg,#FFD15C,#E8B339);
+  color:#0A0E14;font-size:13px;font-weight:800;
   padding:13px 30px;border-radius:26px;text-decoration:none;
   letter-spacing:.3px;
-  box-shadow:0 8px 24px rgba(236,72,153,.5),inset 0 1px 0 rgba(255,255,255,.25);
+  box-shadow:0 8px 22px rgba(232,179,57,.4),inset 0 1px 0 rgba(255,255,255,.3);
 }
-.cta-btn:active{transform:scale(.96)}
+.creator-cta:active{transform:scale(.96)}
 
 /* ── Footer ── */
-.footer{text-align:center;font-size:9px;color:#3d2a4d;padding:18px 16px 20px;line-height:1.8}
-.footer a{color:#5b3d70;text-decoration:none}
+.footer{text-align:center;font-size:9px;color:#3A4254;padding:20px 16px 24px;line-height:1.8}
+.footer a{color:#5A6378;text-decoration:none}
 
-/* ── Sticky bottom CTA ── */
+/* ── Sticky bottom CTA — electric blue (separate from content gold) ── */
 .sticky-bar{
   position:fixed;bottom:0;left:50%;transform:translateX(-50%);
   width:100%;max-width:430px;
   padding:10px 12px 18px;
-  background:linear-gradient(transparent,rgba(10,0,16,.98) 35%);
+  background:linear-gradient(transparent,rgba(10,14,20,.98) 35%);
   pointer-events:none;z-index:99;
 }
 .sticky-bar a{
   pointer-events:all;display:flex;align-items:center;justify-content:center;gap:8px;
-  background:linear-gradient(135deg,#ff2d92,#a855f7);
-  color:#fff;text-align:center;
+  background:linear-gradient(135deg,#00B8FF,#4FD4FF);
+  color:#0A0E14;text-align:center;
   font-size:14px;font-weight:800;
   padding:15px 18px;border-radius:16px;text-decoration:none;
-  letter-spacing:.2px;
-  box-shadow:0 8px 28px rgba(236,72,153,.55),0 0 0 1px rgba(236,72,153,.3),inset 0 1px 0 rgba(255,255,255,.2);
+  letter-spacing:.3px;
+  box-shadow:0 8px 28px rgba(0,184,255,.5),0 0 0 1px rgba(0,184,255,.3),inset 0 1px 0 rgba(255,255,255,.3);
   position:relative;overflow:hidden;
 }
 .sticky-bar a::before{
   content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
-  animation:shimmer 3s infinite;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  animation:shimmer 3.5s infinite;
 }
-@keyframes shimmer{0%{left:-100%}50%,100%{left:100%}}
-.sticky-bar a:active{transform:scale(.98)}
-.sticky-pulse{width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1.4s infinite;box-shadow:0 0 8px #fff}
+@keyframes shimmer{0%{left:-100%}50%,100%{left:120%}}
+.sticky-bar a:active{transform:scale(.985)}
 </style>
 </head>
 <body>
@@ -183,129 +223,126 @@ body{
 
   <div class="header">
     <div class="brand">
-      <div class="brand-logo">r/</div>
+      <div class="brand-logo"><img src="img/logo.webp" alt=""></div>
       <div class="brand-text">
-        <h1>chibigbootygirls</h1>
-        <div class="members">40K+ members &bull; community</div>
+        <h1>r/chibigbootygirls</h1>
+        <div class="members">40,000+ members &bull; community</div>
       </div>
     </div>
-    <div class="live-pill">
-      <div class="live-dot"></div>
-      <span>live</span>
-    </div>
+    <a class="join-btn" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=header_join&signup_notice=1" target="_blank" rel="noopener" data-track="join_header">Join</a>
   </div>
 
   <div class="hero">
-    <div class="hero-title">PAWG Heaven</div>
-    <div class="hero-sub">curated drops &bull; updated daily</div>
+    <div class="hero-eyebrow">Premium PAWG community</div>
+    <div class="hero-title">The best booty<br>on the internet.</div>
+    <div class="hero-sub">Curated daily by 40,000+ members.<br>Featured creators &bull; exclusive content.</div>
+    <a class="hero-cta" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=hero&signup_notice=1" target="_blank" rel="noopener" data-track="hero_signup">
+      Sign up free
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M7.5 2 12 6.5 7.5 11" stroke="#0A0E14" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="hero-meta">no card &bull; 18+ &bull; email only</div>
   </div>
 
-  <!-- Live cams top -->
-  <div class="section-label">
+  <!-- Live cams (only shows if API returns rooms) -->
+  <div class="section-label" id="live-label" style="display:none">
     <div class="marker"></div>
-    <span>streaming now</span>
+    <span>broadcasting now</span>
     <div class="count">live cams</div>
   </div>
-  <div class="live-grid" id="live">
-    <div style="grid-column:1/-1;padding:14px;text-align:center;font-size:10px;color:#3d2a4d">loading live...</div>
-  </div>
+  <div class="live-grid" id="live"></div>
 
   <div class="section-label">
     <div class="marker"></div>
-    <span>top picks</span>
-    <div class="count">5 spots</div>
+    <span>featured this week</span>
+    <div class="count">4 picks</div>
   </div>
 
   <!-- Feed -->
   <div class="feed">
 
-    <!-- Card 1: Fanvue -->
+    <!-- Card 1 -->
     <a class="card" href="https://t.acust-9.com/409576/10394/0?aff_sub5=card1" target="_blank" rel="noopener" data-track="card1_fv">
-      <div class="card-num">#01</div>
-      <div class="card-platform">Fanvue</div>
-      <img src="img/3.webp" alt="" loading="eager">
-      <div class="card-overlay">
-        <div class="card-caption">subscribe to her uncensored page</div>
+      <div class="card-photo">
+        <div class="card-logo"><img src="img/logo.webp" alt=""></div>
+        <div class="card-tag">Featured</div>
+        <img src="img/card1.webp" alt="" loading="eager">
+      </div>
+      <div class="card-bar">
+        <div class="card-label">Cheddar pick &bull; Fanvue</div>
+        <div class="card-caption">Full set on her page &mdash; weekly drops, exclusives only.</div>
         <div class="card-cta">
-          See full set
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          View her page
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#0A0E14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </a>
 
-    <!-- Card 2: Chaturbate — direct signup -->
-    <a class="card" href="https://chaturbate.com/in/?tour=eQof&campaign=StgxX&track=card2&signup_notice=1" target="_blank" rel="noopener" data-track="card2_cb">
-      <div class="card-num">#02</div>
-      <div class="card-platform">Live now</div>
-      <img src="img/1.webp" alt="" loading="lazy">
-      <div class="card-overlay">
-        <div class="card-caption">she's on cam right now &mdash; free signup</div>
+    <!-- Card 2 -->
+    <a class="card" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=card2&signup_notice=1" target="_blank" rel="noopener" data-track="card2_cb">
+      <div class="card-photo">
+        <div class="card-logo"><img src="img/logo.webp" alt=""></div>
+        <div class="card-tag">Top this week</div>
+        <img src="img/card2.webp" alt="" loading="lazy">
+      </div>
+      <div class="card-bar">
+        <div class="card-label">Community favorite &bull; Chaturbate</div>
+        <div class="card-caption">Members get the rest &mdash; sign up free, no card.</div>
         <div class="card-cta">
-          Watch her live
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Get full access
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#0A0E14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </a>
 
-    <!-- Card 3: Jerkmate — Romy -->
+    <!-- Card 3 -->
     <a class="card" href="https://jerkmate.com/cam/itsromyrich?aff_id=409576&xid=fr1&campaign_name=itsromyrich&thumbfrm=1&display=form2" target="_blank" rel="noopener" data-track="card3_jm">
-      <div class="card-num">#03</div>
-      <div class="card-platform">Cam show</div>
-      <img src="img/2.webp" alt="" loading="lazy">
-      <div class="card-overlay">
-        <div class="card-caption">going off in private right now</div>
+      <div class="card-photo">
+        <div class="card-logo"><img src="img/logo.webp" alt=""></div>
+        <div class="card-tag">Trending</div>
+        <img src="img/card3.webp" alt="" loading="lazy">
+      </div>
+      <div class="card-bar">
+        <div class="card-label">Trending creator &bull; Jerkmate</div>
+        <div class="card-caption">More from her cam room &mdash; she streams weekly.</div>
         <div class="card-cta">
-          Join free
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          See her room
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#0A0E14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </a>
 
-    <!-- Card 4: LiveJasmin -->
-    <a class="card" href="https://www.livejasmin.com/?psid=chibbigbooty&psprogram=revs&campaign=chibigbootygirls" target="_blank" rel="noopener" data-track="card4_lj">
-      <div class="card-num">#04</div>
-      <div class="card-platform">Premium</div>
-      <img src="img/5.webp" alt="" loading="lazy">
-      <div class="card-overlay">
-        <div class="card-caption">this angle &mdash; you have to see it</div>
-        <div class="card-cta">
-          Watch on LiveJasmin
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+    <!-- Card 4 -->
+    <a class="card" href="https://mym.camlinks.io/?aff_id=409576" target="_blank" rel="noopener" data-track="card4_mym">
+      <div class="card-photo">
+        <div class="card-logo"><img src="img/logo.webp" alt=""></div>
+        <div class="card-tag">Editor's pick</div>
+        <img src="img/card4.webp" alt="" loading="lazy">
       </div>
-    </a>
-
-    <!-- Card 5: MYM -->
-    <a class="card" href="https://mym.camlinks.io/?aff_id=409576" target="_blank" rel="noopener" data-track="card5_mym">
-      <div class="card-num">#05</div>
-      <div class="card-platform">Full set</div>
-      <img src="img/6.webp" alt="" loading="lazy">
-      <div class="card-overlay">
-        <div class="card-caption">thighs like that don't quit</div>
+      <div class="card-bar">
+        <div class="card-label">Exclusive creator &bull; MYM</div>
+        <div class="card-caption">Members-only uploads &mdash; new content every week.</div>
         <div class="card-cta">
-          See the full set
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Unlock content
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M1 5.5h9M6.5 2 10 5.5 6.5 9" stroke="#0A0E14" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </div>
     </a>
 
   </div>
 
-  <!-- More live cams -->
-  <div class="section-label" style="margin-top:14px">
+  <!-- More live cams (only renders if results) -->
+  <div class="section-label" id="live2-label" style="display:none;margin-top:14px">
     <div class="marker"></div>
-    <span>more going live</span>
-    <div class="count">free preview</div>
+    <span>more on cam</span>
+    <div class="count">live</div>
   </div>
-  <div class="live-grid" id="live2">
-    <div style="grid-column:1/-1;padding:14px;text-align:center;font-size:10px;color:#3d2a4d">loading...</div>
-  </div>
+  <div class="live-grid" id="live2"></div>
 
   <!-- Creator CTA -->
-  <div class="cta-block">
-    <h3>Get featured here</h3>
-    <p>40K active members &bull; posts hit 12K+ upvotes<br>Free promo for creators &mdash; DM us to set it up</p>
-    <a class="cta-btn" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=Hey%20I%20saw%20your%20page%20and%20I%27m%20interested%20in%20getting%20promoted" target="_blank" rel="noopener" data-track="cta_creator">Apply for free promo &rarr;</a>
+  <div class="creator-block">
+    <h3>Get featured here.</h3>
+    <p><span class="stat">40K+</span> active members &bull; posts hit <span class="stat">12K+</span> upvotes.<br>Free promo for creators &mdash; DM us to get started.</p>
+    <a class="creator-cta" href="https://reddit.com/message/compose/?to=Affectionate_Lunch_9&subject=Creator%20Promo&message=Hey%20I%20saw%20your%20page%20and%20I%27m%20interested%20in%20getting%20promoted" target="_blank" rel="noopener" data-track="cta_creator">Apply for free promo &rarr;</a>
   </div>
 
   <div class="footer">
@@ -313,22 +350,26 @@ body{
   </div>
 </div>
 
-<!-- Sticky bottom CTA -->
+<!-- Sticky bottom — Sign Up CTA (electric blue, separate color from content links) -->
 <div class="sticky-bar">
-  <a href="https://chaturbate.com/in/?tour=eQof&campaign=StgxX&track=sticky&signup_notice=1" target="_blank" rel="noopener" data-track="sticky_cta">
-    <div class="sticky-pulse"></div>
-    Watch girls live now &mdash; free
-    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M7.5 2 12 6.5 7.5 11" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <a href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=sticky&signup_notice=1" target="_blank" rel="noopener" data-track="sticky_signup">
+    Sign up free &mdash; see exclusives
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 6.5h11M7.5 2 12 6.5 7.5 11" stroke="#0A0E14" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
 </div>
 
 <script>
-async function loadLive(elementId,offset){
+async function loadLive(elementId, labelId, offset){
   try{
     var r=await fetch('https://chaturbate.com/api/public/affiliates/onlinerooms/?wm=StgxX&client_ip=1.1.1.1&limit=4&offset='+offset+'&gender=f&format=json');
     var d=await r.json();
     var rooms=d.results||[];
-    if(!rooms.length){document.getElementById(elementId).style.display='none';return;}
+    if(!rooms.length){
+      document.getElementById(elementId).style.display='none';
+      if(labelId)document.getElementById(labelId).style.display='none';
+      return;
+    }
+    if(labelId)document.getElementById(labelId).style.display='flex';
     document.getElementById(elementId).innerHTML=rooms.map(function(m){
       return '<a class="live-thumb" href="'+m.chat_room_url_revshare+'" target="_blank" rel="noopener" data-track="live_'+m.username+'">'
         +'<span class="live-badge">live</span>'
@@ -336,24 +377,26 @@ async function loadLive(elementId,offset){
         +'<div class="live-name">'+(m.display_name||m.username)+'</div>'
         +'</a>';
     }).join('');
-  }catch(e){document.getElementById(elementId).style.display='none';}
+  }catch(e){
+    document.getElementById(elementId).style.display='none';
+    if(labelId)document.getElementById(labelId).style.display='none';
+  }
 }
 
-loadLive('live',Math.floor(Math.random()*20));
-loadLive('live2',Math.floor(Math.random()*20)+20);
+loadLive('live','live-label',Math.floor(Math.random()*20));
+loadLive('live2','live2-label',Math.floor(Math.random()*20)+20);
 setInterval(function(){
-  loadLive('live',Math.floor(Math.random()*30));
-  loadLive('live2',Math.floor(Math.random()*30)+30);
+  loadLive('live','live-label',Math.floor(Math.random()*30));
+  loadLive('live2','live2-label',Math.floor(Math.random()*30)+30);
 },90000);
 
 // URL param variants for comment bot
 var t=new URLSearchParams(location.search).get('t');
-var h=document.querySelector('.brand-text h1');
 var ht=document.querySelector('.hero-title');
-if(t==='more'){h.textContent='more from the sub';if(ht)ht.textContent='More From the Sub';}
-else if(t==='source'){h.textContent='found it';if(ht)ht.textContent='Source Found';}
-else if(t==='full'){h.textContent='full set here';if(ht)ht.textContent='Full Set Inside';}
-else if(t==='part2'){h.textContent='part 2';if(ht)ht.textContent='Part 2';}
+if(t==='more'&&ht)ht.innerHTML='More from<br>the sub.';
+else if(t==='source'&&ht)ht.innerHTML='Source<br>found.';
+else if(t==='full'&&ht)ht.innerHTML='Full set<br>inside.';
+else if(t==='part2'&&ht)ht.innerHTML='Part 2<br>here.';
 
 // TRACKING
 (function(){
