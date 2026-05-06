@@ -132,6 +132,27 @@ a{text-decoration:none;color:inherit}
 .footer{text-align:center;font-size:10px;color:var(--text-dim);font-weight:600;padding:22px 18px 18px;line-height:1.8}
 .footer a{color:var(--text-mid)}
 
+/* Countdown bar */
+.countdown{margin:10px 0 16px;padding:10px 12px;background:rgba(255,59,92,.08);border:1px solid rgba(255,59,92,.35);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.countdown-label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--hot)}
+.countdown-label::before{content:'●';margin-right:5px;animation:tp 1.4s infinite}
+.countdown-time{font-size:18px;font-weight:900;letter-spacing:1.5px;color:#fff;font-variant-numeric:tabular-nums}
+
+/* Spots-left meter */
+.spots{margin-top:10px;padding:9px 12px;background:rgba(232,179,57,.07);border:1px solid rgba(232,179,57,.3);border-radius:8px;display:flex;align-items:center;gap:10px}
+.spots-bar{flex:1;height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.spots-bar-fill{height:100%;background:linear-gradient(90deg,var(--hot),var(--gold));transition:width .6s ease}
+.spots-text{font-size:10.5px;font-weight:800;letter-spacing:.4px;color:var(--gold-h);white-space:nowrap}
+.spots-text b{color:#fff;font-weight:900}
+
+/* Live activity toast */
+.toast{position:fixed;bottom:88px;left:50%;transform:translateX(-50%) translateY(20px);width:calc(100% - 24px);max-width:380px;padding:11px 14px;background:rgba(19,23,31,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-left:3px solid var(--good);border-radius:10px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:80;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast-dot{width:8px;height:8px;background:var(--good);border-radius:50%;flex-shrink:0;box-shadow:0 0 8px var(--good)}
+.toast-text{font-size:12px;color:var(--text);font-weight:600;line-height:1.3;flex:1;min-width:0}
+.toast-text b{color:#fff;font-weight:800}
+.toast-text .where{color:var(--text-dim);font-weight:600}
+
 /* Sticky bottom */
 .sticky{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:430px;padding:10px 12px 16px;background:linear-gradient(transparent,rgba(8,9,12,.99) 35%);pointer-events:none;z-index:90}
 .sticky a{pointer-events:all;display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--action),var(--action-h));color:#001220;font-size:14.5px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;padding:17px 18px;border-radius:14px;min-height:52px;box-shadow:0 8px 28px rgba(0,184,255,.5),0 0 0 1px rgba(0,184,255,.35),inset 0 1px 0 rgba(255,255,255,.4);position:relative;overflow:hidden;animation:beat 2.4s ease-in-out infinite}
@@ -160,10 +181,18 @@ a{text-decoration:none;color:inherit}
     <div class="live-pill"><span class="dot"></span>New drops tonight &bull; some get pulled by morning</div>
     <h1 class="h1">Reddit only sees<br><span class="accent">part of it.</span></h1>
     <p class="sub"><b>40,127 members</b> already saw what's behind this page. The uncut sets aren't on the sub &mdash; they get posted here, then disappear.</p>
+    <div class="countdown">
+      <div class="countdown-label">Tonight's drop</div>
+      <div class="countdown-time" id="countdown">--:--:--</div>
+    </div>
     <a class="cta-primary" href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=hero&signup_notice=1" target="_blank" rel="noopener" data-track="hero_signup">
       Show me what's locked <span class="cta-arrow">→</span>
     </a>
     <div class="cta-meta"><b>Free</b> &bull; email only &bull; 12 seconds &bull; 18+</div>
+    <div class="spots">
+      <div class="spots-bar"><div class="spots-bar-fill" id="spotsBar" style="width:18%"></div></div>
+      <div class="spots-text"><b id="spotsLeft">23</b> free spots left tonight</div>
+    </div>
   </section>
 
   <div class="activity">
@@ -259,6 +288,11 @@ a{text-decoration:none;color:inherit}
   <div class="footer">18+ only &bull; <a href="https://reddit.com/r/chibigbootygirls">r/chibigbootygirls</a> &bull; all models 18+</div>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <div class="toast-dot"></div>
+  <div class="toast-text"><b id="toastName">Mike</b> <span id="toastAction">just unlocked</span> <span class="where" id="toastWhere">— Dallas, TX</span></div>
+</div>
+
 <div class="sticky">
   <a href="https://chaturbate.com/in/?tour=g4pe&campaign=StgxX&track=sticky&signup_notice=1" target="_blank" rel="noopener" data-track="sticky_signup">
     Show me what's hidden <span class="cta-arrow">→</span>
@@ -277,9 +311,72 @@ a{text-decoration:none;color:inherit}
   var locked = (98 + rand(0, 60, 4));
   document.getElementById('lockedCount').textContent = locked;
   var lc2 = document.getElementById('lockedCount2'); if(lc2) lc2.textContent = locked;
-  // "Updated X minutes ago" — drift between 2-22m
   var ago = 2 + Math.floor((Date.now()/60000) % 21);
   document.getElementById('updatedAgo').textContent = ago;
+})();
+
+// Countdown to midnight CT (the "drop")
+(function(){
+  var el = document.getElementById('countdown');
+  if(!el) return;
+  function tick(){
+    // CT = UTC-5 (CDT). Midnight CT = 5:00 UTC.
+    var now = new Date();
+    var utcMs = now.getTime();
+    var nowCT = new Date(utcMs - 5*3600*1000);
+    var target = new Date(Date.UTC(nowCT.getUTCFullYear(), nowCT.getUTCMonth(), nowCT.getUTCDate()+1, 5, 0, 0));
+    var diff = Math.max(0, target.getTime() - utcMs);
+    var h = Math.floor(diff/3600000);
+    var m = Math.floor(diff%3600000/60000);
+    var s = Math.floor(diff%60000/1000);
+    function pad(n){ return n<10?'0'+n:''+n; }
+    el.textContent = pad(h)+':'+pad(m)+':'+pad(s);
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+// Decreasing spots-left — slow drift down, never zero
+(function(){
+  var spotsEl = document.getElementById('spotsLeft');
+  var barEl = document.getElementById('spotsBar');
+  if(!spotsEl || !barEl) return;
+  var minute = Math.floor(Date.now()/60000);
+  var base = 47 - (minute % 38);
+  var spots = Math.max(7, base);
+  function render(){
+    spotsEl.textContent = spots;
+    barEl.style.width = Math.max(8, (spots/47)*100) + '%';
+  }
+  render();
+  setInterval(function(){
+    if(spots > 7 && Math.random() < 0.45){ spots -= 1; render(); }
+    else if(spots <= 9 && Math.random() < 0.18){ spots = 11 + Math.floor(Math.random()*5); render(); }
+  }, 14000);
+})();
+
+// Live "just unlocked" toast — rotating social proof
+(function(){
+  var toast = document.getElementById('toast');
+  var nameEl = document.getElementById('toastName');
+  var whereEl = document.getElementById('toastWhere');
+  if(!toast) return;
+  var names = ['Mike','Jay','Tyler','Chris','Marcus','Devon','Brandon','Sean','Anthony','Kyle','Derrick','Jordan','Ryan','Cole','Trent','Aaron','Logan','Travis','Wes','Eric'];
+  var cities = ['Dallas, TX','Phoenix, AZ','Atlanta, GA','Chicago, IL','Tampa, FL','Denver, CO','Houston, TX','Detroit, MI','Vegas, NV','Seattle, WA','Charlotte, NC','Miami, FL','Columbus, OH','Nashville, TN','San Diego, CA','Boston, MA','Brooklyn, NY','Philly, PA','Memphis, TN','Indianapolis, IN'];
+  var actions = ['just unlocked','just signed up','just joined','just opened the archive','just unlocked'];
+  function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+  var actionEl = document.getElementById('toastAction');
+  function show(){
+    nameEl.textContent = pick(names);
+    whereEl.textContent = '— ' + pick(cities);
+    actionEl.textContent = pick(actions);
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 4200);
+  }
+  // First toast after 6s, then every 22-48s
+  setTimeout(function loop(){
+    show();
+    setTimeout(loop, 22000 + Math.random()*26000);
+  }, 6000);
 })();
 
 // Live cams
