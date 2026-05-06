@@ -1,0 +1,14 @@
+# Scrapers / outreach scripts (not part of the landing page)
+*.py
+__pycache__/
+*.pyc
+
+# Local screenshots / debug
+screenshots/
+*.png
+!img/*.png
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
