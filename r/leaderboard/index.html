@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>PAWG Showdown Leaderboard</title>
+<script>
+(function(){
+  var qs = window.location.search || "";
+  var sep = qs ? "&" : "?";
+  var target = "https://endorsed-bike-hunt-trio.trycloudflare.com/contest/leaderboard" + qs + sep + "src=leaderboard_share";
+  var m = document.createElement('meta');
+  m.httpEquiv = "refresh";
+  m.content = "0;url=" + target;
+  document.head.appendChild(m);
+  window.location.replace(target);
+})();
+</script>
+</head><body>
+<p>Redirecting to <a id="r" href="https://endorsed-bike-hunt-trio.trycloudflare.com/contest/leaderboard?src=leaderboard_share">live leaderboard</a>…</p>
+<script>
+(function(){
+  var a = document.getElementById('r');
+  if (a){
+    var qs = window.location.search || "";
+    var sep = qs ? "&" : "?";
+    a.href = "https://endorsed-bike-hunt-trio.trycloudflare.com/contest/leaderboard" + qs + sep + "src=leaderboard_share";
+  }
+})();
+</script>
+</body></html>
