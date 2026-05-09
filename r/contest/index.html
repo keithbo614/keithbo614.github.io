@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0;url=https://endorsed-bike-hunt-trio.trycloudflare.com/contest">
-<script>window.location.replace("https://endorsed-bike-hunt-trio.trycloudflare.com/contest")</script>
 <title>PAWG Showdown Signup</title>
+<script>
+(function(){
+  var qs = window.location.search || "";
+  var target = "https://endorsed-bike-hunt-trio.trycloudflare.com/contest" + qs;
+  var m = document.createElement('meta');
+  m.httpEquiv = "refresh";
+  m.content = "0;url=" + target;
+  document.head.appendChild(m);
+  window.location.replace(target);
+})();
+</script>
 </head><body>
-<p>Redirecting to <a href="https://endorsed-bike-hunt-trio.trycloudflare.com/contest">contest signup</a>…</p>
+<p>Redirecting to <a id="r" href="https://endorsed-bike-hunt-trio.trycloudflare.com/contest">contest signup</a>…</p>
+<script>
+(function(){
+  var a = document.getElementById('r');
+  if (a) a.href = "https://endorsed-bike-hunt-trio.trycloudflare.com/contest" + (window.location.search || "");
+})();
+</script>
 </body></html>
