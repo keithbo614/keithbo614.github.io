@@ -175,7 +175,7 @@ a{text-decoration:none;color:inherit}
         <div class="meta"><span id="visitors">1,247</span> here today &bull; updated <span id="updatedAgo">8</span>m ago</div>
       </div>
     </div>
-    <a class="top-cta" href="#live-h" data-track="top_join">Enter</a>
+    <a class="top-cta" href="/r/jm" target="_blank" rel="noopener" data-track="top_join">Enter</a>
   </header>
 
   <section class="hero">
@@ -188,7 +188,7 @@ a{text-decoration:none;color:inherit}
       <div class="countdown-label">Tonight's drop</div>
       <div class="countdown-time" id="countdown">--:--:--</div>
     </div>
-    <a class="cta-primary" href="#live-h" data-track="hero_signup">
+    <a class="cta-primary" href="/r/jm" target="_blank" rel="noopener" data-track="hero_signup">
       Show me who's live <span class="cta-arrow">→</span>
     </a>
     <div class="cta-meta"><b>Free</b> &bull; no signup &bull; straight to her room &bull; 18+</div>
@@ -262,7 +262,7 @@ a{text-decoration:none;color:inherit}
     <div class="tile"><img src="img/lock5.webp" alt="" loading="lazy"></div>
     <div class="tile"><img src="img/lock6.webp" alt="" loading="lazy"></div>
   </div>
-  <div class="locked-cta"><b><span id="lockedCount2">127</span> more sets</b> you haven't seen &mdash; <a href="#live-h" data-track="locked_unlock">see who's live now</a></div>
+  <div class="locked-cta"><b><span id="lockedCount2">127</span> more sets</b> you haven't seen &mdash; <a href="/r/jm" target="_blank" rel="noopener" data-track="locked_unlock">see who's live now</a></div>
 
   <!-- More live cams -->
   <div class="sect-h" id="live2-h" style="display:none;padding-top:22px">
@@ -287,7 +287,7 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <div class="sticky">
-  <a href="#live-h" data-track="sticky_signup">
+  <a href="/r/jm" target="_blank" rel="noopener" data-track="sticky_signup">
     Show me who's live <span class="cta-arrow">→</span>
   </a>
 </div>
@@ -413,8 +413,9 @@ async function loadGirls(){
       document.getElementById('live2').innerHTML=b.map(card).join(''); }
   }catch(e){}
 }
-loadGirls();
-setInterval(loadGirls, 90000);
+// Chaturbate live feed DISABLED — its raw feed skews teen-branded; not putting
+// that anywhere near this brand. Direct girl links come from vetted sources only.
+// loadGirls();
 
 // Comment-bot URL variants
 var t = new URLSearchParams(location.search).get('t');
